@@ -3,22 +3,22 @@ import { LanguageProvider } from './context/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
-import ServicesSection from './components/ServicesSection';
-import FleetSection from './components/FleetSection';
-import CalculatorQuoteSection from './components/CalculatorQuoteSection';
+import MevzuatSection from './components/MevzuatSection';
+import SertifikalarSection from './components/SertifikalarSection';
+import KariyerSection from './components/KariyerSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 
 function AppContent() {
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-blue-600 selection:text-white antialiased">
+    <div className="min-h-screen bg-white text-gray-800 font-sans antialiased">
       <Header />
       <main>
         <Hero />
         <AboutSection />
-        <ServicesSection />
-        <FleetSection />
-        <CalculatorQuoteSection />
+        <MevzuatSection />
+        <SertifikalarSection />
+        <KariyerSection />
         <ContactSection />
       </main>
       <Footer />

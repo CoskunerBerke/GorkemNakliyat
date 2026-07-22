@@ -4,18 +4,34 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    font-family: 'Open Sans', system-ui, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     background-color: #ffffff;
-    color: #222222;
+    color: #333333;
   }
-
-  h1, h2, h3, h4, h5, h6 {
+  h1,h2,h3,h4,h5,h6 {
     font-family: 'Roboto Condensed', 'Arial Black', sans-serif;
   }
 }
 
-/* Custom scrollbar */
-::-webkit-scrollbar { width: 7px; }
+/* Orange accent variable */
+:root {
+  --orange: #e8a000;
+  --orange-dark: #c78800;
+  --dark: #1a1a1a;
+  --dark2: #222222;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: #f1f1f1; }
-::-webkit-scrollbar-thumb { background: #999; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #b91c1c; }
+::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #e8a000; }
+
+/* Section title underline */
+.section-underline {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #e8a000;
+  margin-top: 8px;
+}

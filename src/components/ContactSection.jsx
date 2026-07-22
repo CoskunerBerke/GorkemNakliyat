@@ -1,119 +1,201 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Phone, Mail, MapPin, User, MessageSquare } from 'lucide-react';
+import { MapPin, Phone, Mail, User } from 'lucide-react';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
 
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const msg = `Merhaba Görkem Ağır Nakliyat,\n\n*${form.name}* tarafından mesaj:\n\n${form.message}\n\nE-posta: ${form.email}`;
+    window.open(`https://wa.me/905332136801?text=${encodeURIComponent(msg)}`, '_blank');
+  };
+
+  const infoItemStyle = {
+    display: 'flex',
+    alignItems: 'flex-start',
+    gap: '10px',
+    marginBottom: '10px',
+    fontSize: '13px',
+    color: '#444',
+  };
+
+  const iconBoxStyle = {
+    width: '28px',
+    height: '28px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e8a000',
+    flexShrink: 0,
+  };
+
+  const sectionHeadStyle = {
+    fontFamily: "'Roboto Condensed', sans-serif",
+    fontWeight: 900,
+    fontSize: '16px',
+    color: '#222',
+    textTransform: 'uppercase',
+    borderBottom: '1px solid #e0e0e0',
+    paddingBottom: '8px',
+    marginBottom: '14px',
+  };
+
   return (
-    <section id="contact" className="py-16 md:py-20 bg-white border-b border-gray-200">
-      <div className="max-w-6xl mx-auto px-6">
-        
-        {/* Header */}
-        <div className="mb-12">
-          <p className="text-red-700 text-sm font-bold uppercase tracking-widest mb-2" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
-            {t.contact.badge}
-          </p>
-          <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase" style={{ fontFamily: "'Roboto Condensed', 'Arial Black', sans-serif" }}>
-            {t.contact.title}
-          </h2>
-          <div className="w-12 h-1 bg-red-700 mt-3" />
-        </div>
+    <section id="contact" className="bg-white border-b border-gray-200">
+      
+      {/* Google Maps — full width */}
+      <div style={{ width: '100%', height: '340px' }}>
+        <iframe
+          src="https://maps.google.com/maps?q=Ostim+OSB+Mah.+100.+Y%C4%B1l+Bulvar%C4%B1+Ostim+Prestij+%C4%B0%C5%9F+Merkezi+D+Blok+No+55%2F35+Yenimahalle+Ankara&t=m&z=14&output=embed&iwloc=near"
+          width="100%"
+          height="340"
+          style={{ border: 0 }}
+          allowFullScreen
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          title="Görkem Ağır Nakliyat Konum"
+        />
+      </div>
 
-        {/* Contact Info Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
-          
-          <div className="border border-gray-200 bg-gray-50 p-5">
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
-              <User className="w-4 h-4 text-red-700" />
-              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.managerTitle}</span>
-            </div>
-            <p className="font-black text-gray-900 text-base" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.contact.managerName}</p>
-            <a href="tel:05332136801" className="text-red-700 font-bold text-sm hover:underline block mt-1">{t.contact.mobileNumber}</a>
-          </div>
+      {/* Contact content below map */}
+      <div className="max-w-6xl mx-auto px-6 py-12">
 
-          <div className="border border-gray-200 bg-gray-50 p-5">
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
-              <Phone className="w-4 h-4 text-red-700" />
-              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.phoneTitle}</span>
-            </div>
-            <a href="tel:03123854483" className="text-gray-900 font-bold text-sm block hover:text-red-700">{t.contact.phoneNumber}</a>
-            <p className="text-gray-500 text-xs mt-1">Faks: {t.contact.faxNumber}</p>
-          </div>
+        <h1
+          className="text-2xl font-black uppercase mb-2"
+          style={{ fontFamily: "'Roboto Condensed', sans-serif", color: '#222' }}
+        >
+          {t.contact.title}
+        </h1>
+        <div style={{ width: '40px', height: '3px', backgroundColor: '#e8a000', marginBottom: '28px' }} />
 
-          <div className="border border-gray-200 bg-gray-50 p-5">
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
-              <Mail className="w-4 h-4 text-red-700" />
-              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.emailTitle}</span>
-            </div>
-            <a href="mailto:gorkemagirnakliyat@gmail.com" className="text-red-700 font-bold text-xs hover:underline break-all">
-              {t.contact.emailAddress}
-            </a>
-          </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-          <div className="border border-gray-200 bg-gray-50 p-5">
-            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
-              <MapPin className="w-4 h-4 text-red-700" />
-              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.ostimRecordTitle}</span>
-            </div>
-            <p className="text-gray-700 text-xs leading-relaxed font-semibold">{t.contact.ostimRecordAddress}</p>
-          </div>
+          {/* Left: Contact Info */}
+          <div className="space-y-8">
 
-        </div>
+            {/* Ofis */}
+            <div>
+              <h4 style={sectionHeadStyle}>{t.contact.officeTitle}</h4>
 
-        {/* Full Address Box */}
-        <div className="bg-gray-50 border border-gray-200 p-8">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-            
-            <div className="lg:col-span-2 space-y-3">
-              <h4 className="font-black uppercase text-gray-900 text-lg" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
-                {t.contact.addressTitle}
-              </h4>
-              <p className="text-gray-700 text-sm font-medium leading-relaxed">
-                {t.contact.addressFull}
-              </p>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-bold">
-                <div>
-                  <span className="text-gray-400 text-[10px] uppercase block">{t.contact.managerTitle}</span>
-                  <span className="text-gray-900">Cüneyt Erdem</span>
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <MapPin className="w-3.5 h-3.5 text-white" />
                 </div>
-                <div>
-                  <span className="text-gray-400 text-[10px] uppercase block">GSM</span>
-                  <a href="tel:05332136801" className="text-red-700 hover:underline">0 533 213 68 01</a>
+                <a
+                  href="https://maps.google.com/?q=Ostim+OSB+Mah.+100+Yıl+Bulvarı+Ankara"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ color: '#e8a000', textDecoration: 'underline', fontSize: '13px' }}
+                >
+                  {t.contact.address}
+                </a>
+              </div>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <Phone className="w-3.5 h-3.5 text-white" />
                 </div>
-                <div>
-                  <span className="text-gray-400 text-[10px] uppercase block">TEL</span>
-                  <a href="tel:03123854483" className="text-gray-900 hover:text-red-700">0 312 385 44 83</a>
+                <a href={`tel:${t.contact.phone1.replace(/\s/g, '')}`} style={{ color: '#444' }}>
+                  {t.contact.phone1}
+                </a>
+              </div>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <Phone className="w-3.5 h-3.5 text-white" />
                 </div>
-                <div>
-                  <span className="text-gray-400 text-[10px] uppercase block">FAKS</span>
-                  <span className="text-gray-900">0 312 385 44 84</span>
+                <span style={{ color: '#444' }}>{t.contact.phone2}</span>
+              </div>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <Mail className="w-3.5 h-3.5 text-white" />
                 </div>
+                <a
+                  href={`mailto:${t.contact.email}`}
+                  style={{ color: '#e8a000', textDecoration: 'underline', fontSize: '13px' }}
+                >
+                  {t.contact.email}
+                </a>
               </div>
             </div>
 
-            <div className="flex flex-col gap-3">
-              <a
-                href="https://wa.me/905332136801"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 text-xs uppercase tracking-wider transition-colors"
-              >
-                <MessageSquare className="w-4 h-4" />
-                WhatsApp Mesaj Gönder
-              </a>
-              <a
-                href="tel:05332136801"
-                className="flex items-center justify-center gap-2 bg-red-700 hover:bg-red-800 text-white font-bold py-3.5 text-xs uppercase tracking-wider transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                Hemen Ara
-              </a>
+            {/* Yetkili */}
+            <div>
+              <h4 style={sectionHeadStyle}>{t.contact.yetkiliTitle}</h4>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <User className="w-3.5 h-3.5 text-white" />
+                </div>
+                <span style={{ fontWeight: 700, color: '#333' }}>{t.contact.yetkiliName}</span>
+              </div>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <Phone className="w-3.5 h-3.5 text-white" />
+                </div>
+                <a href="tel:05332136801" style={{ color: '#e8a000', fontWeight: 700 }}>
+                  {t.contact.yetkiliPhone}
+                </a>
+              </div>
+
+              <div style={infoItemStyle}>
+                <div style={iconBoxStyle}>
+                  <Mail className="w-3.5 h-3.5 text-white" />
+                </div>
+                <a
+                  href={`mailto:${t.contact.yetkiliEmail}`}
+                  style={{ color: '#e8a000', textDecoration: 'underline' }}
+                >
+                  {t.contact.yetkiliEmail}
+                </a>
+              </div>
             </div>
-
           </div>
-        </div>
 
+          {/* Right: Contact Form */}
+          <div>
+            <h4 style={sectionHeadStyle}>{t.contact.formTitle}</h4>
+            <form onSubmit={handleSubmit} className="space-y-3">
+              <input
+                type="text"
+                required
+                placeholder={t.contact.formName}
+                value={form.name}
+                onChange={(e) => setForm({ ...form, name: e.target.value })}
+                className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-yellow-500"
+              />
+              <input
+                type="email"
+                required
+                placeholder={t.contact.formEmail}
+                value={form.email}
+                onChange={(e) => setForm({ ...form, email: e.target.value })}
+                className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-yellow-500"
+              />
+              <textarea
+                required
+                rows={6}
+                placeholder={t.contact.formMessage}
+                value={form.message}
+                onChange={(e) => setForm({ ...form, message: e.target.value })}
+                className="w-full border border-gray-300 px-3 py-2.5 text-sm focus:outline-none focus:border-yellow-500 resize-y"
+              />
+              <button
+                type="submit"
+                className="px-6 py-2.5 text-sm font-bold uppercase text-white transition-opacity hover:opacity-80"
+                style={{ backgroundColor: '#e8a000', fontFamily: "'Roboto Condensed', sans-serif" }}
+              >
+                {t.contact.formSend}
+              </button>
+            </form>
+          </div>
+
+        </div>
       </div>
     </section>
   );
