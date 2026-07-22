@@ -1,31 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Phone, Mail, MapPin, User, MessageSquare } from 'lucide-react';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
-  
-  const [contactForm, setContactForm] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: ''
-  });
-
-  const handleContactSubmit = (e) => {
-    e.preventDefault();
-
-    const nameText = contactForm.name.trim() || 'Belirtilmedi';
-    const emailText = contactForm.email.trim() || 'Belirtilmedi';
-    const phoneText = contactForm.phone.trim() || 'Belirtilmedi';
-    const subjectText = contactForm.subject.trim() || 'Genel İletişim / Teklif';
-    const messageText = contactForm.message.trim() || 'Belirtilmedi';
-
-    const text = `Merhaba Görkem Ağır Nakliyat (Cüneyt Erdem),\n\n*Web Sitesi İletişim Mesajı*\n\n👤 *Ad Soyad:* ${nameText}\n📞 *Telefon:* ${phoneText}\n✉️ *E-posta:* ${emailText}\n📌 *Konu:* ${subjectText}\n💬 *Mesaj:* ${messageText}`;
-
-    window.open(`https://wa.me/905332136801?text=${encodeURIComponent(text)}`, '_blank');
-  };
 
   return (
     <section id="contact" className="py-16 md:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
@@ -103,7 +81,7 @@ export const ContactSection = () => {
         </div>
 
         {/* Detailed Address Box */}
-        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-2xs mb-12">
+        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-2xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
             <div className="lg:col-span-8 space-y-4">
@@ -163,63 +141,6 @@ export const ContactSection = () => {
             </div>
 
           </div>
-        </div>
-
-        {/* Message Form directly opening WhatsApp */}
-        <div className="bg-white rounded-2xl p-6 sm:p-10 border border-slate-200 shadow-2xs max-w-4xl mx-auto">
-          <h3 className="text-xl font-black uppercase text-slate-900 text-center mb-6">{t.contact.formTitle}</h3>
-          
-          <form onSubmit={handleContactSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="text"
-                required
-                placeholder={t.contact.formNamePlaceholder}
-                value={contactForm.name}
-                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
-              />
-              <input
-                type="email"
-                placeholder={t.contact.formEmailPlaceholder}
-                value={contactForm.email}
-                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
-              />
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <input
-                type="tel"
-                required
-                placeholder={t.contact.formPhonePlaceholder}
-                value={contactForm.phone}
-                onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
-              />
-              <input
-                type="text"
-                placeholder={t.contact.formSubjectPlaceholder}
-                value={contactForm.subject}
-                onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
-                className="w-full bg-slate-50 border border-slate-200 rounded-xl py-3 px-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
-              />
-            </div>
-            <textarea
-              rows={4}
-              required
-              placeholder={t.contact.formMessagePlaceholder}
-              value={contactForm.message}
-              onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-              className="w-full bg-slate-50 border border-slate-200 rounded-xl p-4 text-xs sm:text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-emerald-600 font-medium"
-            />
-            <button
-              type="submit"
-              className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider py-3.5 rounded-xl shadow-2xs transition-all text-xs flex items-center justify-center gap-2"
-            >
-              <MessageSquare className="w-4 h-4" />
-              <span>{t.contact.formSubmitBtn} (0533 213 68 01)</span>
-            </button>
-          </form>
         </div>
 
       </div>
