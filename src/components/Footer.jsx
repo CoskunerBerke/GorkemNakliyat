@@ -40,7 +40,6 @@ export const Footer = () => {
               <li><a href="#about" className="hover:text-blue-400 transition-colors">{t.nav.about}</a></li>
               <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.nav.services}</a></li>
               <li><a href="#fleet" className="hover:text-blue-400 transition-colors">{t.nav.fleet}</a></li>
-              <li><a href="#gallery" className="hover:text-blue-400 transition-colors">{t.nav.gallery}</a></li>
               <li><a href="#calculator" className="hover:text-blue-400 transition-colors">{t.nav.quote}</a></li>
               <li><a href="#contact" className="hover:text-blue-400 transition-colors">{t.nav.contact}</a></li>
             </ul>
@@ -50,11 +49,11 @@ export const Footer = () => {
           <div className="lg:col-span-3 space-y-3">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">{t.footer.servicesTitle}</h4>
             <ul className="space-y-2 text-xs">
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Ağır Yük Taşımacılığı</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Lowbed Treyler Hizmeti</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Uluslararası Karayolu Lojistiği</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Öncü Araç (Escort) Desteği</a></li>
-              <li><a href="#services" className="hover:text-blue-400 transition-colors">Proje & Vinç Operasyonu</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.footer.serviceItem1}</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.footer.serviceItem2}</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.footer.serviceItem3}</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.footer.serviceItem4}</a></li>
+              <li><a href="#services" className="hover:text-blue-400 transition-colors">{t.footer.serviceItem5}</a></li>
             </ul>
           </div>
 
@@ -72,7 +71,7 @@ export const Footer = () => {
               </li>
               <li className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-slate-500 shrink-0" />
-                <a href="tel:03123854483" className="hover:text-white">0 312 385 44 83 (Tel / Faks)</a>
+                <a href="tel:03123854483" className="hover:text-white">0 312 385 44 83</a>
               </li>
               <li className="flex items-center gap-2">
                 <Mail className="w-4 h-4 text-emerald-400 shrink-0" />

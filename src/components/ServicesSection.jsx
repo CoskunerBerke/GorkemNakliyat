@@ -69,7 +69,7 @@ export const ServicesSection = () => {
                 onClick={() => setActiveModal(service)}
                 className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-950 hover:bg-blue-600 text-slate-200 hover:text-white font-bold text-xs border border-slate-800 hover:border-blue-500 transition-all"
               >
-                <span>Detaylı Bilgi & Teklif</span>
+                <span>{t.services.moreInfoBtn}</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>
@@ -96,7 +96,7 @@ export const ServicesSection = () => {
             <h3 className="text-2xl font-bold text-white mb-2">{activeModal.title}</h3>
             <p className="text-slate-300 text-sm leading-relaxed mb-6">{activeModal.shortDesc}</p>
 
-            <h4 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">Hizmet Kapsamı ve Özellikler</h4>
+            <h4 className="text-xs font-bold text-blue-400 uppercase tracking-wider mb-3">{t.services.modalScopeTitle}</h4>
             <ul className="space-y-3 mb-8">
               {activeModal.details.map((detail, idx) => (
                 <li key={idx} className="flex items-start gap-3 text-sm text-slate-200">
@@ -112,13 +112,13 @@ export const ServicesSection = () => {
                 onClick={() => setActiveModal(null)}
                 className="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl shadow-lg text-sm"
               >
-                Bu Hizmet İçin Teklif Al
+                {t.services.modalQuoteBtn}
               </a>
               <a
                 href="tel:05332136801"
                 className="w-full text-center bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold py-3 rounded-xl text-sm"
               >
-                Cüneyt Erdem'i Ara
+                {t.services.modalCallBtn}
               </a>
             </div>
           </div>

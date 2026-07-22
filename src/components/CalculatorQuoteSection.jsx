@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { MessageSquare, PhoneCall, Send, MapPin, Scale, Truck, User, Phone, Mail, FileText } from 'lucide-react';
+import { MessageSquare, PhoneCall, MapPin, Scale, Truck } from 'lucide-react';
 
 export const CalculatorQuoteSection = () => {
   const { t } = useLanguage();
@@ -53,7 +53,7 @@ export const CalculatorQuoteSection = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
-          {/* Main Form (Directly sending to WhatsApp 05332136801) */}
+          {/* Main Form */}
           <div className="lg:col-span-8 bg-slate-950 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-2xl">
             <form onSubmit={handleFormSubmit} className="space-y-6">
               
@@ -207,7 +207,7 @@ export const CalculatorQuoteSection = () => {
             <div className="bg-slate-950 rounded-2xl p-6 sm:p-8 border border-slate-800 shadow-xl space-y-6">
               
               <div className="border-b border-slate-800 pb-4">
-                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">Doğrudan Operasyon Hattı</span>
+                <span className="text-xs font-bold text-emerald-400 uppercase tracking-wider">{t.calculator.hotlineTitle}</span>
                 <h4 className="text-xl font-extrabold text-white mt-1">Cüneyt Erdem</h4>
                 <p className="text-xs text-slate-400 mt-0.5">Görkem Ağır Nakliyat & Uluslararası Taşımacılık</p>
               </div>
@@ -235,11 +235,11 @@ export const CalculatorQuoteSection = () => {
               <div className="pt-4 border-t border-slate-800 space-y-2 text-xs text-slate-400">
                 <p className="flex items-center gap-2">
                   <Truck className="w-4 h-4 text-blue-400 shrink-0" />
-                  <span>Ankara OSTİM Çıkışlı Tüm Türkiye & Uluslararası Hatlar</span>
+                  <span>{t.calculator.routeScope}</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <Scale className="w-4 h-4 text-amber-400 shrink-0" />
-                  <span>150 Tona Kadar Gabari Dışı Ağır Yük Lisansı</span>
+                  <span>{t.calculator.payloadPermit}</span>
                 </p>
               </div>
 

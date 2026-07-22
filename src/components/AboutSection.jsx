@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ShieldCheck, MapPin, Phone, CheckCircle2, Truck, MessageSquare, Award, Compass } from 'lucide-react';
+import { ShieldCheck, MapPin, CheckCircle2, Truck, MessageSquare, Award } from 'lucide-react';
 
 export const AboutSection = () => {
   const { t } = useLanguage();
@@ -15,7 +15,7 @@ export const AboutSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Corporate Highlights Card (Photo-free clean design) */}
+          {/* Left Column: Corporate Highlights Card */}
           <div className="lg:col-span-5 space-y-4">
             
             <div className="relative rounded-2xl bg-slate-950 p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
@@ -25,20 +25,20 @@ export const AboutSection = () => {
                   <Award className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white">Ankara OSTİM Lojistik Üssü</h4>
-                  <span className="text-xs text-blue-400 font-semibold">25+ Yıllık Sektörel Birikim</span>
+                  <h4 className="text-lg font-bold text-white">{t.about.hubTitle}</h4>
+                  <span className="text-xs text-blue-400 font-semibold">{t.about.hubSub}</span>
                 </div>
               </div>
 
               {/* Quick Metrics */}
               <div className="grid grid-cols-2 gap-3 pt-2">
                 <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                  <span className="text-[11px] font-semibold text-slate-400 block">Operasyon Kapsamı</span>
-                  <span className="text-xs font-bold text-white mt-1 block">Türkiye & Uluslararası</span>
+                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.opScopeLabel}</span>
+                  <span className="text-xs font-bold text-white mt-1 block">{t.about.opScopeVal}</span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                  <span className="text-[11px] font-semibold text-slate-400 block">Taşıma İzinleri</span>
-                  <span className="text-xs font-bold text-emerald-400 mt-1 block">Karayolları Lisanslı</span>
+                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.roadPermitLabel}</span>
+                  <span className="text-xs font-bold text-emerald-400 mt-1 block">{t.about.roadPermitVal}</span>
                 </div>
               </div>
 
@@ -66,7 +66,7 @@ export const AboutSection = () => {
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Merkez Ofis & OSTİM Kaydı</h5>
+                <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">{t.about.officeRecordTitle}</h5>
                 <p className="text-xs text-slate-400 mt-1 leading-relaxed">
                   Ostim OSB Mah. 100. Yıl Bulvarı, Ostim Prestij İş Merkezi D Blok No: 55/35, Yenimahalle / ANKARA
                 </p>

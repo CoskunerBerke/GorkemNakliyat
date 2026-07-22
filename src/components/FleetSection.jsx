@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Truck, Scale, Maximize2, Shield, Wrench, ArrowRight, MessageSquare } from 'lucide-react';
+import { Truck, Scale, Maximize2, Shield, MessageSquare } from 'lucide-react';
 
 export const FleetSection = () => {
   const { t } = useLanguage();
@@ -37,7 +37,7 @@ export const FleetSection = () => {
           </p>
         </div>
 
-        {/* Fleet Cards (Photo-free clean industrial design) */}
+        {/* Fleet Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {t.fleet.items.map((item, idx) => (
             <div
@@ -50,7 +50,7 @@ export const FleetSection = () => {
                     {getFleetIcon(idx)}
                   </div>
                   <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-full uppercase">
-                    Görkem Ekipmanı
+                    {t.fleet.equipmentBadge}
                   </span>
                 </div>
 
@@ -86,7 +86,7 @@ export const FleetSection = () => {
                   className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-emerald-600 text-slate-200 hover:text-white font-bold text-xs border border-slate-800 hover:border-emerald-500 transition-all shadow-md"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp ile Bilgi Al</span>
+                  <span>{t.fleet.inquireWhatsApp}</span>
                 </button>
               </div>
 

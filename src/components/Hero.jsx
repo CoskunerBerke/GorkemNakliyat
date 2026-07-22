@@ -1,12 +1,12 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Truck, ShieldCheck, Award, ArrowRight, PhoneCall, MessageSquare, MapPin, CheckCircle2 } from 'lucide-react';
+import { Truck, ShieldCheck, Award, ArrowRight, PhoneCall, MessageSquare, CheckCircle2 } from 'lucide-react';
 
 export const Hero = () => {
   const { t } = useLanguage();
 
   const openWhatsAppDirect = () => {
-    const text = "Merhaba Görkem Ağır Nakliyat, ağir yük ve uluslararası taşımacılık hakkında teklif almak istiyorum.";
+    const text = "Merhaba Görkem Ağır Nakliyat, ağır yük ve uluslararası taşımacılık hakkında teklif almak istiyorum.";
     window.open(`https://wa.me/905332136801?text=${encodeURIComponent(text)}`, '_blank');
   };
 
@@ -66,15 +66,15 @@ export const Hero = () => {
             <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-6 text-xs text-slate-400 border-t border-slate-800/80">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-emerald-400" />
-                <span>Sigortalı & Lisanslı Taşıma</span>
+                <span>{t.hero.insuredLabel}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="w-4 h-4 text-blue-400" />
-                <span>Lowbed & Teleskopik Treyler</span>
+                <span>{t.hero.lowbedLabel}</span>
               </div>
               <div className="flex items-center gap-2">
                 <Award className="w-4 h-4 text-amber-400" />
-                <span>OSTİM Ankara Merkez</span>
+                <span>{t.hero.ostimLabel}</span>
               </div>
             </div>
 
@@ -90,13 +90,13 @@ export const Hero = () => {
                     <Truck className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-white">Görkem Lojistik Destek</h4>
-                    <span className="text-xs text-blue-400 font-medium">Ankara OSTİM Merkez Hattı</span>
+                    <h4 className="text-lg font-bold text-white">{t.hero.supportTitle}</h4>
+                    <span className="text-xs text-blue-400 font-medium">{t.hero.supportSub}</span>
                   </div>
                 </div>
                 <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-[11px] font-bold rounded-full border border-emerald-500/30 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
-                  <span>7/24 Aktif</span>
+                  <span>{t.hero.activeBadge}</span>
                 </span>
               </div>
 
@@ -105,25 +105,25 @@ export const Hero = () => {
                 <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0" />
-                    <span className="text-xs font-semibold text-slate-200">Ağır Yük & Gabari Dışı Taşımacılık</span>
+                    <span className="text-xs font-semibold text-slate-200">{t.hero.heavyItem1}</span>
                   </div>
-                  <span className="text-[10px] font-bold bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800">150 Ton</span>
+                  <span className="text-[10px] font-bold bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800">{t.hero.heavyItem1Cap}</span>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" />
-                    <span className="text-xs font-semibold text-slate-200">Uzatmalı Teleskopik Lowbed Filosu</span>
+                    <span className="text-xs font-semibold text-slate-200">{t.hero.heavyItem2}</span>
                   </div>
-                  <span className="text-[10px] font-bold bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">35 Metre</span>
+                  <span className="text-[10px] font-bold bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">{t.hero.heavyItem2Cap}</span>
                 </div>
 
                 <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
-                    <span className="text-xs font-semibold text-slate-200">Öncü Araç (Escort) & Yol İzinleri</span>
+                    <span className="text-xs font-semibold text-slate-200">{t.hero.heavyItem3}</span>
                   </div>
-                  <span className="text-[10px] font-bold bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">Resmi İzin</span>
+                  <span className="text-[10px] font-bold bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">{t.hero.heavyItem3Cap}</span>
                 </div>
               </div>
 
@@ -131,7 +131,7 @@ export const Hero = () => {
               <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800/80 space-y-3">
                 <div className="flex items-center justify-between">
                   <div>
-                    <span className="text-[11px] font-semibold text-slate-400 block">Genel Müdürü / Yetkili</span>
+                    <span className="text-[11px] font-semibold text-slate-400 block">{t.hero.managerTitle}</span>
                     <h5 className="text-base font-extrabold text-white">Cüneyt Erdem</h5>
                   </div>
                   <span className="text-xs font-extrabold text-blue-400">0 533 213 68 01</span>
@@ -142,7 +142,7 @@ export const Hero = () => {
                   className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg text-xs shadow-lg transition-all"
                 >
                   <MessageSquare className="w-4 h-4" />
-                  <span>WhatsApp ile Doğrudan Ulaş</span>
+                  <span>{t.hero.reachDirect}</span>
                 </button>
               </div>
 

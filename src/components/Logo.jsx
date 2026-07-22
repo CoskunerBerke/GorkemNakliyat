@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLanguage } from '../context/LanguageContext';
 
 export const LogoEmblem = ({ width = 48, height = 48, className = "" }) => {
   return (
@@ -37,6 +38,7 @@ export const LogoEmblem = ({ width = 48, height = 48, className = "" }) => {
 };
 
 export const Logo = ({ variant = "full", size = "normal" }) => {
+  const { t } = useLanguage();
   const isCompact = size === "small";
 
   return (
@@ -51,7 +53,7 @@ export const Logo = ({ variant = "full", size = "normal" }) => {
             GÖRKEM
           </span>
           <span className="logo-subtitle mt-1 px-2 py-0.5 bg-blue-600 text-white font-bold text-[10px] sm:text-[11px] rounded tracking-tight uppercase whitespace-nowrap shadow-xs inline-block">
-            Ağır Nakliyat & Uluslararası Taşımacılık
+            {t.logo.subtitle}
           </span>
         </div>
       )}

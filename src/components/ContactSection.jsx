@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Phone, Mail, MapPin, User, MessageSquare, Send } from 'lucide-react';
+import { Phone, Mail, MapPin, User, MessageSquare } from 'lucide-react';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
@@ -114,7 +114,7 @@ export const ContactSection = () => {
                 </div>
                 <div>
                   <h4 className="text-xl font-bold text-white">{t.contact.addressTitle}</h4>
-                  <span className="text-xs text-blue-400 font-semibold">Ankara OSTİM Prestij İş Merkezi</span>
+                  <span className="text-xs text-blue-400 font-semibold">{t.contact.addressSub}</span>
                 </div>
               </div>
 
@@ -126,19 +126,19 @@ export const ContactSection = () => {
 
               <div className="space-y-3 text-xs text-slate-300">
                 <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">Genel Müdür / Yetkili:</span>
+                  <span className="text-slate-400">{t.contact.managerTitle}:</span>
                   <span className="font-bold text-white">Cüneyt Erdem</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">GSM / Mobil:</span>
+                  <span className="text-slate-400">{t.contact.mobileTitle}:</span>
                   <span className="font-bold text-blue-400">0 533 213 68 01</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">Telefon:</span>
+                  <span className="text-slate-400">{t.contact.phoneTitle}:</span>
                   <span className="font-bold text-white">0 312 385 44 83</span>
                 </div>
                 <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">Faks:</span>
+                  <span className="text-slate-400">{t.contact.faxTitle}:</span>
                   <span className="font-bold text-white">0 312 385 44 84</span>
                 </div>
               </div>
@@ -151,7 +151,7 @@ export const ContactSection = () => {
                 rel="noreferrer"
                 className="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-xs shadow-lg transition-all"
               >
-                Google Maps'te Aç
+                {t.contact.openMapsBtn}
               </a>
               <a
                 href="https://wa.me/905332136801"

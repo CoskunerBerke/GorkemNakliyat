@@ -1,5 +1,8 @@
 export const translations = {
   tr: {
+    logo: {
+      subtitle: "AĞIR NAKLİYAT & ULUSLARARASI TAŞIMACILIK"
+    },
     nav: {
       home: "Ana Sayfa",
       about: "Hakkımızda",
@@ -24,6 +27,20 @@ export const translations = {
       stat3Desc: "Güvenli & Zamanında Teslimat",
       stat4Title: "7/24",
       stat4Desc: "Kesintisiz Operasyon",
+      supportTitle: "Görkem Lojistik Destek",
+      supportSub: "Ankara OSTİM Merkez Hattı",
+      activeBadge: "7/24 Aktif",
+      heavyItem1: "Ağır Yük & Gabari Dışı Taşımacılık",
+      heavyItem1Cap: "150 Ton",
+      heavyItem2: "Uzatmalı Teleskopik Lowbed Filosu",
+      heavyItem2Cap: "35 Metre",
+      heavyItem3: "Öncü Araç (Escort) & Yol İzinleri",
+      heavyItem3Cap: "Resmi İzin",
+      managerTitle: "Genel Müdürü / Yetkili",
+      reachDirect: "WhatsApp ile Doğrudan Ulaş",
+      insuredLabel: "Sigortalı & Lisanslı Taşıma",
+      lowbedLabel: "Lowbed & Teleskopik Treyler",
+      ostimLabel: "OSTİM Ankara Merkez"
     },
     about: {
       badge: "KURUMSAL",
@@ -34,6 +51,13 @@ export const translations = {
       managerLabel: "Genel Müdürü / Yetkili",
       managerName: "Cüneyt Erdem",
       phoneLabel: "Doğrudan İletişim",
+      hubTitle: "Ankara OSTİM Lojistik Üssü",
+      hubSub: "25+ Yıllık Sektörel Birikim",
+      opScopeLabel: "Operasyon Kapsamı",
+      opScopeVal: "Türkiye & Uluslararası",
+      roadPermitLabel: "Taşıma İzinleri",
+      roadPermitVal: "Karayolları Lisanslı",
+      officeRecordTitle: "Merkez Ofis & OSTİM Kaydı",
       features: [
         { title: "Gabari Dışı İzin Yönetimi", desc: "Tüm karayolu izinleri ve öncü araç (escort) organizasyonu" },
         { title: "Gelişmiş Lowbed Filosu", desc: "Farklı tonaj ve yüksekliklerde özel hidrolik ve teleskopik treylerler" },
@@ -45,6 +69,10 @@ export const translations = {
       badge: "HİZMETLERİMİZ",
       title: "Ağır Taşımacılık ve Lojistik Çözümlerimiz",
       subtitle: "Standartların ötesindeki yükleriniz için özel ekipman ve profesyonel mühendislik planlaması.",
+      moreInfoBtn: "Detaylı Bilgi & Teklif",
+      modalScopeTitle: "Hizmet Kapsamı ve Özellikler",
+      modalQuoteBtn: "Bu Hizmet İçin Teklif Al",
+      modalCallBtn: "Cüneyt Erdem'i Ara",
       items: [
         {
           id: "agir-nakliyat",
@@ -88,6 +116,8 @@ export const translations = {
       badge: "GÜÇLÜ FİLOMUZ VE EKİPMANLARIMIZ",
       title: "Teknolojik Ekipman ve Uzman Araç Filomuz",
       subtitle: "Görkem Ağır Nakliyat bünyesinde bulunan özel treylerler ve ağır çekiciler.",
+      equipmentBadge: "GÖRKEM EKİPMANI",
+      inquireWhatsApp: "WhatsApp ile Bilgi Al",
       specLabels: {
         capacity: "Kapasite",
         length: "Uzunluk / Aks",
@@ -152,6 +182,9 @@ export const translations = {
       noteLabel: "Yük Ölçüleri ve Notlar (Genişlik, Yükseklik, Uzunluk)",
       notePlaceholder: "Örn: Yükseklik 3.8m, Genişlik 3.2m, Ağır tonaj...",
       submitBtn: "WhatsApp İle Teklif Talebini Gönder (0533 213 68 01)",
+      hotlineTitle: "Doğrudan Operasyon Hattı",
+      routeScope: "Ankara OSTİM Çıkışlı Tüm Türkiye & Uluslararası Hatlar",
+      payloadPermit: "150 Tona Kadar Gabari Dışı Ağır Yük Lisansı",
       orDirectContact: "veya Doğrudan İletişime Geçin:",
       callDirect: "Cüneyt Erdem'i Hemen Ara",
       whatsappDirect: "Doğrudan WhatsApp Mesajı"
@@ -171,11 +204,12 @@ export const translations = {
       emailTitle: "E-posta Adresi",
       emailAddress: "gorkemagirnakliyat@gmail.com",
       addressTitle: "Merkez Ofis Adresi",
+      addressSub: "Ankara OSTİM Prestij İş Merkezi",
       addressFull: "Ostim OSB Mah., 100. Yıl Bulvarı, Ostim Prestij İş Merkezi, D Blok No: 55/35, Yenimahalle / ANKARA",
       ostimRecordTitle: "OSTİM Firma Kayıt Adresi",
       ostimRecordAddress: "100. Yıl Bulvarı 55D/35, OSTİM / ANKARA",
       mapTitle: "Konumumuz (Google Maps)",
-      mapSub: "Ankara Ostim Prestij İş Merkezi D Blok",
+      openMapsBtn: "Google Maps'te Aç",
       formTitle: "Bize Mesaj Gönderin (WhatsApp)",
       formNamePlaceholder: "Adınız Soyadınız",
       formEmailPlaceholder: "E-posta Adresiniz",
@@ -188,6 +222,11 @@ export const translations = {
       aboutText: "Görkem Ağır Nakliyat & Uluslararası Taşımacılık, gabari dışı yükleriniz ve özel proje lojistiğinde Ankara OSTİM merkezli profesyonel çözüm ortağınızdır.",
       quickLinks: "Hızlı Bağlantılar",
       servicesTitle: "Hizmetlerimiz",
+      serviceItem1: "Ağır Yük Taşımacılığı",
+      serviceItem2: "Lowbed Treyler Hizmeti",
+      serviceItem3: "Uluslararası Karayolu Lojistiği",
+      serviceItem4: "Öncü Araç (Escort) Desteği",
+      serviceItem5: "Proje & Vinç Operasyonu",
       contactTitle: "Merkez İletişim",
       addressShort: "Ostim OSB Mah. 100. Yıl Blv. Ostim Prestij İş Mrk. D Blok No: 55/35 Yenimahalle/ANKARA",
       rights: "Tüm Hakları Saklıdır.",
@@ -195,6 +234,9 @@ export const translations = {
     }
   },
   en: {
+    logo: {
+      subtitle: "HEAVY TRANSPORT & INTERNATIONAL LOGISTICS"
+    },
     nav: {
       home: "Home",
       about: "About Us",
@@ -203,7 +245,7 @@ export const translations = {
       quote: "WhatsApp Quote",
       contact: "Contact",
       getQuoteBtn: "WhatsApp Quote",
-      workingHours: "24/7 Logistics Support",
+      workingHours: "24/7 Non-stop Logistics Support",
     },
     hero: {
       badge: "ANKARA OSTIM BASED GLOBAL LOGISTICS",
@@ -219,6 +261,20 @@ export const translations = {
       stat3Desc: "Safe & On-Time Delivery",
       stat4Title: "24/7",
       stat4Desc: "Non-stop Operation",
+      supportTitle: "Görkem Logistics Support",
+      supportSub: "Ankara OSTIM Main Hotline",
+      activeBadge: "24/7 Active",
+      heavyItem1: "Heavy Haulage & Oversized Freight",
+      heavyItem1Cap: "150 Tons",
+      heavyItem2: "Telescopic Extendable Lowbed Fleet",
+      heavyItem2Cap: "35 Meters",
+      heavyItem3: "Pilot Car (Escort) & Route Permits",
+      heavyItem3Cap: "Official Permit",
+      managerTitle: "General Manager / Contact",
+      reachDirect: "Reach Directly via WhatsApp",
+      insuredLabel: "Insured & Licensed Freight",
+      lowbedLabel: "Lowbed & Telescopic Trailer",
+      ostimLabel: "OSTIM Ankara Headquarters"
     },
     about: {
       badge: "CORPORATE",
@@ -229,6 +285,13 @@ export const translations = {
       managerLabel: "General Manager / Contact",
       managerName: "Cüneyt Erdem",
       phoneLabel: "Direct Contact",
+      hubTitle: "Ankara OSTIM Logistics Hub",
+      hubSub: "25+ Years Industry Experience",
+      opScopeLabel: "Operational Scope",
+      opScopeVal: "Turkey & International",
+      roadPermitLabel: "Highway Permits",
+      roadPermitVal: "Licensed & Certified",
+      officeRecordTitle: "Headquarters & OSTİM Record",
       features: [
         { title: "Oversized Route Clearance", desc: "Full road permits and certified pilot car (escort) organization" },
         { title: "Advanced Lowbed Fleet", desc: "Special hydraulic and telescopic trailers for heavy payloads" },
@@ -240,6 +303,10 @@ export const translations = {
       badge: "OUR SERVICES",
       title: "Heavy Haulage & International Logistics Solutions",
       subtitle: "Specialized equipment and engineering planning for cargo beyond standard limits.",
+      moreInfoBtn: "Detailed Info & Quote",
+      modalScopeTitle: "Scope of Service & Features",
+      modalQuoteBtn: "Get Quote For This Service",
+      modalCallBtn: "Call Cüneyt Erdem",
       items: [
         {
           id: "agir-nakliyat",
@@ -283,6 +350,8 @@ export const translations = {
       badge: "OUR FLEET & EQUIPMENT",
       title: "Technological Equipment & Expert Vehicle Fleet",
       subtitle: "Specialized trailers and heavy-duty tow tractors in Görkem Heavy Transport fleet.",
+      equipmentBadge: "GÖRKEM EQUIPMENT",
+      inquireWhatsApp: "Inquire via WhatsApp",
       specLabels: {
         capacity: "Capacity",
         length: "Length / Axles",
@@ -347,6 +416,9 @@ export const translations = {
       noteLabel: "Cargo Dimensions & Additional Notes (Width, Height, Length)",
       notePlaceholder: "e.g. Height 3.8m, Width 3.2m, Heavy tonnage...",
       submitBtn: "Send Quote Request via WhatsApp (+90 533 213 68 01)",
+      hotlineTitle: "Direct Operations Hotline",
+      routeScope: "Origin Ankara OSTIM - All Turkey & International Routes",
+      payloadPermit: "Heavy & Oversized Payload Permit up to 150 Tons",
       orDirectContact: "or Contact Us Directly:",
       callDirect: "Call Cüneyt Erdem Now",
       whatsappDirect: "Direct WhatsApp Message"
@@ -366,11 +438,12 @@ export const translations = {
       emailTitle: "Email Address",
       emailAddress: "gorkemagirnakliyat@gmail.com",
       addressTitle: "Headquarters Address",
+      addressSub: "Ankara OSTIM Prestij Business Center",
       addressFull: "Ostim OSB Mah., 100. Yıl Bulvarı, Ostim Prestij İş Merkezi, D Blok No: 55/35, Yenimahalle / ANKARA",
       ostimRecordTitle: "OSTIM Registered Address",
       ostimRecordAddress: "100. Yıl Bulvarı 55D/35, OSTİM / ANKARA",
       mapTitle: "Location (Google Maps)",
-      mapSub: "Ankara Ostim Prestij Business Center D Block",
+      openMapsBtn: "Open in Google Maps",
       formTitle: "Send Us a Message (WhatsApp)",
       formNamePlaceholder: "Your Full Name",
       formEmailPlaceholder: "Your Email Address",
@@ -383,6 +456,11 @@ export const translations = {
       aboutText: "Görkem Heavy Transport & International Logistics is your professional Ankara OSTIM based solution partner for oversized cargo and project logistics.",
       quickLinks: "Quick Links",
       servicesTitle: "Our Services",
+      serviceItem1: "Heavy Haulage",
+      serviceItem2: "Lowbed Trailer Service",
+      serviceItem3: "International Road Freight",
+      serviceItem4: "Pilot Car (Escort) Support",
+      serviceItem5: "Project & Crane Operations",
       contactTitle: "Head Office Contact",
       addressShort: "Ostim OSB Mah. 100. Yil Blv. Ostim Prestij Business Center D Block No: 55/35 Yenimahalle/ANKARA",
       rights: "All Rights Reserved.",
