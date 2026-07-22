@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Phone, Mail, MapPin, Printer, User, Send, CheckCircle2, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, User, MessageSquare, Send } from 'lucide-react';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
-  const [formSent, setFormSent] = useState(false);
+  
+  const [contactForm, setContactForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  });
 
-  const handleFormSubmit = (e) => {
+  const handleContactSubmit = (e) => {
     e.preventDefault();
-    setFormSent(true);
+
+    const nameText = contactForm.name.trim() || 'Belirtilmedi';
+    const emailText = contactForm.email.trim() || 'Belirtilmedi';
+    const phoneText = contactForm.phone.trim() || 'Belirtilmedi';
+    const subjectText = contactForm.subject.trim() || 'Genel İletişim / Teklif';
+    const messageText = contactForm.message.trim() || 'Belirtilmedi';
+
+    const text = `Merhaba Görkem Ağır Nakliyat (Cüneyt Erdem),\n\n*Web Sitesi İletişim Mesajı*\n\n👤 *Ad Soyad:* ${nameText}\n📞 *Telefon:* ${phoneText}\n✉️ *E-posta:* ${emailText}\n📌 *Konu:* ${subjectText}\n💬 *Mesaj:* ${messageText}`;
+
+    window.open(`https://wa.me/905332136801?text=${encodeURIComponent(text)}`, '_blank');
   };
 
   return (
@@ -166,61 +182,61 @@ export const ContactSection = () => {
 
         </div>
 
-        {/* Message Form */}
+        {/* Message Form directly opening WhatsApp */}
         <div className="bg-slate-900 rounded-2xl p-6 sm:p-10 border border-slate-800 shadow-2xl max-w-4xl mx-auto">
           <h3 className="text-2xl font-bold text-white text-center mb-6">{t.contact.formTitle}</h3>
           
-          {formSent ? (
-            <div className="text-center py-8 space-y-3">
-              <div className="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                <CheckCircle2 className="w-7 h-7" />
-              </div>
-              <h4 className="text-lg font-bold text-white">Mesajınız İletildi!</h4>
-              <p className="text-xs text-slate-300">En kısa sürede tarafınıza dönüş yapılacaktır.</p>
-            </div>
-          ) : (
-            <form onSubmit={handleFormSubmit} className="space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="text"
-                  required
-                  placeholder={t.contact.formNamePlaceholder}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                />
-                <input
-                  type="email"
-                  required
-                  placeholder={t.contact.formEmailPlaceholder}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <input
-                  type="tel"
-                  placeholder={t.contact.formPhonePlaceholder}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                />
-                <input
-                  type="text"
-                  placeholder={t.contact.formSubjectPlaceholder}
-                  className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
-                />
-              </div>
-              <textarea
-                rows={4}
+          <form onSubmit={handleContactSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="text"
                 required
-                placeholder={t.contact.formMessagePlaceholder}
-                className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-blue-500"
+                placeholder={t.contact.formNamePlaceholder}
+                value={contactForm.name}
+                onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
               />
-              <button
-                type="submit"
-                className="w-full bg-blue-600 hover:bg-blue-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2"
-              >
-                <Send className="w-4 h-4" />
-                <span>{t.contact.formSubmitBtn}</span>
-              </button>
-            </form>
-          )}
+              <input
+                type="email"
+                placeholder={t.contact.formEmailPlaceholder}
+                value={contactForm.email}
+                onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input
+                type="tel"
+                required
+                placeholder={t.contact.formPhonePlaceholder}
+                value={contactForm.phone}
+                onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+              <input
+                type="text"
+                placeholder={t.contact.formSubjectPlaceholder}
+                value={contactForm.subject}
+                onChange={(e) => setContactForm({ ...contactForm, subject: e.target.value })}
+                className="w-full bg-slate-950 border border-slate-800 rounded-xl py-3 px-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+              />
+            </div>
+            <textarea
+              rows={4}
+              required
+              placeholder={t.contact.formMessagePlaceholder}
+              value={contactForm.message}
+              onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+              className="w-full bg-slate-950 border border-slate-800 rounded-xl p-4 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-emerald-500 transition-colors"
+            />
+            <button
+              type="submit"
+              className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 rounded-xl shadow-lg transition-all text-sm flex items-center justify-center gap-2"
+            >
+              <MessageSquare className="w-4 h-4" />
+              <span>{t.contact.formSubmitBtn} (0533 213 68 01)</span>
+            </button>
+          </form>
         </div>
 
       </div>

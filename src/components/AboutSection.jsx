@@ -1,9 +1,13 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ShieldCheck, MapPin, Phone, UserCheck, CheckCircle2, Truck, Image as ImageIcon } from 'lucide-react';
+import { ShieldCheck, MapPin, Phone, CheckCircle2, Truck, MessageSquare, Award, Compass } from 'lucide-react';
 
 export const AboutSection = () => {
   const { t } = useLanguage();
+
+  const openWhatsApp = () => {
+    window.open("https://wa.me/905332136801?text=Merhaba%20G%C3%B6rkem%20A%C4%9F%C4%B1r%20Nakliyat%2C%20hakk%C4%B1n%C4%B1zda%20ve%20hizmetleriniz%20hakk%C4%B1nda%20bilgi%20almak%20istiyorum.", "_blank");
+  };
 
   return (
     <section id="about" className="py-20 bg-slate-900 text-slate-100 border-b border-slate-800 relative">
@@ -11,48 +15,60 @@ export const AboutSection = () => {
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Image / Photo Placeholder Slots */}
+          {/* Left Column: Corporate Highlights Card (Photo-free clean design) */}
           <div className="lg:col-span-5 space-y-4">
             
-            {/* Primary Image Slot */}
-            <div className="relative rounded-2xl bg-slate-950 p-4 border border-slate-800 shadow-2xl overflow-hidden group">
-              <div className="aspect-[4/3] rounded-xl bg-slate-900 border-2 border-dashed border-slate-700/80 flex flex-col items-center justify-center p-6 text-center group-hover:border-blue-500/60 transition-colors">
-                <div className="w-14 h-14 rounded-full bg-blue-950/80 flex items-center justify-center text-blue-400 mb-3 border border-blue-800">
-                  <ImageIcon className="w-7 h-7" />
+            <div className="relative rounded-2xl bg-slate-950 p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+              
+              <div className="flex items-center gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0">
+                  <Award className="w-7 h-7" />
                 </div>
-                <span className="px-3 py-1 bg-blue-500/20 text-blue-400 border border-blue-500/30 text-xs font-bold rounded-md uppercase mb-2">
-                  {t.about.photoPlaceholderNotice}
-                </span>
-                <p className="text-slate-400 text-xs max-w-xs">
-                  {t.about.photoPlaceholderSub}
-                </p>
+                <div>
+                  <h4 className="text-lg font-bold text-white">Ankara OSTİM Lojistik Üssü</h4>
+                  <span className="text-xs text-blue-400 font-semibold">25+ Yıllık Sektörel Birikim</span>
+                </div>
               </div>
 
-              {/* Manager Card Overlay */}
-              <div className="mt-4 p-4 rounded-xl bg-slate-900/90 border border-slate-800 flex items-center justify-between">
-                <div>
-                  <span className="text-xs font-semibold text-slate-400 block">{t.about.managerLabel}</span>
-                  <h4 className="text-lg font-bold text-white">{t.about.managerName}</h4>
+              {/* Quick Metrics */}
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[11px] font-semibold text-slate-400 block">Operasyon Kapsamı</span>
+                  <span className="text-xs font-bold text-white mt-1 block">Türkiye & Uluslararası</span>
                 </div>
-                <a 
-                  href="tel:05332136801" 
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs px-3.5 py-2 rounded-lg transition-colors shadow-md"
-                >
-                  <Phone className="w-3.5 h-3.5" />
-                  <span>0 533 213 68 01</span>
-                </a>
+                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
+                  <span className="text-[11px] font-semibold text-slate-400 block">Taşıma İzinleri</span>
+                  <span className="text-xs font-bold text-emerald-400 mt-1 block">Karayolları Lisanslı</span>
+                </div>
               </div>
+
+              {/* Manager Card */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 flex items-center justify-between">
+                <div>
+                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.managerLabel}</span>
+                  <h4 className="text-base font-extrabold text-white">{t.about.managerName}</h4>
+                  <span className="text-xs text-blue-400 font-bold">0 533 213 68 01</span>
+                </div>
+                <button 
+                  onClick={openWhatsApp}
+                  className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-3.5 py-2.5 rounded-lg transition-colors shadow-md"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </button>
+              </div>
+
             </div>
 
-            {/* Secondary Location info badge */}
+            {/* Location info badge */}
             <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-3">
               <div className="p-2.5 rounded-lg bg-blue-950 text-blue-400 border border-blue-900 shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h5 className="text-sm font-bold text-slate-200">Merkez Ofis & OSTİM Kaydı</h5>
-                <p className="text-xs text-slate-400 mt-0.5 leading-relaxed">
-                  Ostim OSB Mah. 100. Yıl Bulvarı, Ostim Prestij İş Merkezi D Blok No: 55/35, Yenimahalle / Ankara
+                <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">Merkez Ofis & OSTİM Kaydı</h5>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                  Ostim OSB Mah. 100. Yıl Bulvarı, Ostim Prestij İş Merkezi D Blok No: 55/35, Yenimahalle / ANKARA
                 </p>
               </div>
             </div>

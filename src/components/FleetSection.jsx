@@ -1,9 +1,24 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Truck, Scale, Maximize2, Shield, Image as ImageIcon } from 'lucide-react';
+import { Truck, Scale, Maximize2, Shield, Wrench, ArrowRight, MessageSquare } from 'lucide-react';
 
 export const FleetSection = () => {
   const { t } = useLanguage();
+
+  const getFleetIcon = (idx) => {
+    switch (idx) {
+      case 0: return <Scale className="w-7 h-7 text-blue-400" />;
+      case 1: return <Maximize2 className="w-7 h-7 text-indigo-400" />;
+      case 2: return <Truck className="w-7 h-7 text-emerald-400" />;
+      case 3: return <Shield className="w-7 h-7 text-amber-400" />;
+      default: return <Truck className="w-7 h-7 text-blue-400" />;
+    }
+  };
+
+  const handleFleetWhatsApp = (vehicleName) => {
+    const text = `Merhaba Görkem Ağır Nakliyat, ${vehicleName} kiralama ve taşıma hizmeti hakkında bilgi almak istiyorum.`;
+    window.open(`https://wa.me/905332136801?text=${encodeURIComponent(text)}`, '_blank');
+  };
 
   return (
     <section id="fleet" className="py-20 bg-slate-900 text-slate-100 border-b border-slate-800">
@@ -22,50 +37,57 @@ export const FleetSection = () => {
           </p>
         </div>
 
-        {/* Fleet Cards */}
+        {/* Fleet Cards (Photo-free clean industrial design) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {t.fleet.items.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-950 rounded-2xl border border-slate-800 overflow-hidden shadow-2xl hover:border-slate-700 transition-all flex flex-col justify-between"
+              className="bg-slate-950 rounded-2xl border border-slate-800 p-8 shadow-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between group"
             >
-              {/* Photo Area / Placeholder */}
-              <div className="relative aspect-[16/9] bg-slate-900 border-b border-slate-800 flex flex-col items-center justify-center p-6 text-center group">
-                <div className="w-16 h-16 rounded-full bg-slate-950 flex items-center justify-center text-blue-400 mb-3 border border-slate-800 shadow-md">
-                  <Truck className="w-8 h-8" />
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:scale-105 group-hover:bg-blue-950/60 transition-all">
+                    {getFleetIcon(idx)}
+                  </div>
+                  <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-full uppercase">
+                    Görkem Ekipmanı
+                  </span>
                 </div>
-                
-                <span className="px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold rounded-md uppercase mb-1">
-                  {t.fleet.photoPendingBadge}
-                </span>
 
-                <span className="text-xs text-slate-400 font-medium">
-                  {item.name} Görseli
-                </span>
-              </div>
-
-              {/* Info Body */}
-              <div className="p-6 space-y-4">
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2">{item.name}</h3>
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">{item.desc}</p>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                    {item.name}
+                  </h3>
+                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                    {item.desc}
+                  </p>
                 </div>
 
                 {/* Specs Box */}
                 <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800/80 text-center">
-                  <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-850">
+                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
                     <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.capacity}</span>
                     <span className="text-xs font-bold text-blue-400 mt-0.5 block">{item.capacity}</span>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-850">
+                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
                     <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.length}</span>
                     <span className="text-xs font-bold text-white mt-0.5 block">{item.length}</span>
                   </div>
-                  <div className="p-2.5 rounded-lg bg-slate-900 border border-slate-850">
+                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
                     <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.type}</span>
                     <span className="text-xs font-bold text-slate-300 mt-0.5 block truncate">{item.type}</span>
                   </div>
                 </div>
+              </div>
+
+              <div className="pt-6">
+                <button
+                  onClick={() => handleFleetWhatsApp(item.name)}
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-emerald-600 text-slate-200 hover:text-white font-bold text-xs border border-slate-800 hover:border-emerald-500 transition-all shadow-md"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp ile Bilgi Al</span>
+                </button>
               </div>
 
             </div>

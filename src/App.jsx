@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import AboutSection from './components/AboutSection';
 import ServicesSection from './components/ServicesSection';
 import FleetSection from './components/FleetSection';
-import PhotoGallerySection from './components/PhotoGallerySection';
 import CalculatorQuoteSection from './components/CalculatorQuoteSection';
 import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
@@ -19,7 +18,6 @@ function AppContent() {
         <AboutSection />
         <ServicesSection />
         <FleetSection />
-        <PhotoGallerySection />
         <CalculatorQuoteSection />
         <ContactSection />
       </main>

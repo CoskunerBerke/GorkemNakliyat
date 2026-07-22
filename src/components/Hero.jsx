@@ -1,9 +1,14 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Truck, ShieldCheck, Clock, Award, ArrowRight, PhoneCall, ChevronRight } from 'lucide-react';
+import { Truck, ShieldCheck, Award, ArrowRight, PhoneCall, MessageSquare, MapPin, CheckCircle2 } from 'lucide-react';
 
 export const Hero = () => {
   const { t } = useLanguage();
+
+  const openWhatsAppDirect = () => {
+    const text = "Merhaba Görkem Ağır Nakliyat, ağir yük ve uluslararası taşımacılık hakkında teklif almak istiyorum.";
+    window.open(`https://wa.me/905332136801?text=${encodeURIComponent(text)}`, '_blank');
+  };
 
   return (
     <section id="hero" className="relative bg-slate-950 text-white overflow-hidden py-16 lg:py-24 border-b border-slate-800">
@@ -37,15 +42,16 @@ export const Hero = () => {
               {t.hero.subtitle}
             </p>
 
-            {/* CTA Buttons */}
+            {/* CTA Buttons - Directly linked to WhatsApp */}
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
-              <a
-                href="#calculator"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-blue-600/30 transition-all hover:scale-[1.02] active:scale-95 text-base"
+              <button
+                onClick={openWhatsAppDirect}
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-bold px-8 py-4 rounded-xl shadow-xl shadow-emerald-600/30 transition-all hover:scale-[1.02] active:scale-95 text-base"
               >
+                <MessageSquare className="w-5 h-5" />
                 <span>{t.hero.ctaPrimary}</span>
                 <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
 
               <a
                 href="tel:05332136801"
@@ -74,42 +80,70 @@ export const Hero = () => {
 
           </div>
 
-          {/* Right Visual Card / Photo Slot */}
+          {/* Right Visual Card - Clean Vector Graphics & Direct Contact Box */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 p-6 border border-slate-800 shadow-2xl overflow-hidden group">
+            <div className="relative rounded-2xl bg-gradient-to-b from-slate-900 to-slate-950 p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
               
-              {/* Decorative Accent Ring */}
-              <div className="absolute -top-12 -right-12 w-40 h-40 bg-blue-500/20 rounded-full blur-2xl group-hover:bg-blue-500/30 transition-all" />
-
-              {/* Photo Area Box */}
-              <div className="relative aspect-[4/3] rounded-xl bg-slate-900/90 border-2 border-dashed border-slate-700/80 flex flex-col items-center justify-center p-6 text-center group-hover:border-blue-500/60 transition-colors">
-                
-                <div className="w-16 h-16 rounded-full bg-blue-950 flex items-center justify-center text-blue-400 mb-4 shadow-lg border border-blue-800/50">
-                  <Truck className="w-8 h-8" />
+              <div className="flex items-center justify-between border-b border-slate-800 pb-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-3 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30">
+                    <Truck className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-white">Görkem Lojistik Destek</h4>
+                    <span className="text-xs text-blue-400 font-medium">Ankara OSTİM Merkez Hattı</span>
+                  </div>
                 </div>
-                
-                <span className="inline-block px-3 py-1 bg-amber-500/20 text-amber-400 border border-amber-500/30 text-xs font-bold rounded-md uppercase mb-2">
-                  Fotoğraf Alanı - Yüklenecek
+                <span className="px-2.5 py-1 bg-emerald-500/20 text-emerald-400 text-[11px] font-bold rounded-full border border-emerald-500/30 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span>7/24 Aktif</span>
                 </span>
-                
-                <h4 className="text-slate-200 font-bold text-sm sm:text-base">
-                  Görkem Ağır Nakliyat Araç Görseli
-                </h4>
-                <p className="text-slate-400 text-xs mt-1 max-w-xs">
-                  Fotoğrafları gönderdiğinizde bu alana yüksek çözünürlüklü filo görseli yerleştirilecektir.
-                </p>
               </div>
 
-              {/* Quick Specs Highlight Box */}
-              <div className="mt-4 grid grid-cols-2 gap-3 text-left">
-                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-slate-400 text-[11px] block">Genel Müdürü / Contact</span>
-                  <span className="text-slate-200 font-bold text-sm">Cüneyt Erdem</span>
+              {/* Key Service Badges */}
+              <div className="space-y-3">
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0" />
+                    <span className="text-xs font-semibold text-slate-200">Ağır Yük & Gabari Dışı Taşımacılık</span>
+                  </div>
+                  <span className="text-[10px] font-bold bg-blue-950 text-blue-300 px-2 py-0.5 rounded border border-blue-800">150 Ton</span>
                 </div>
-                <div className="p-3 rounded-lg bg-slate-900 border border-slate-800">
-                  <span className="text-slate-400 text-[11px] block">Direkt GSM / Phone</span>
-                  <span className="text-blue-400 font-bold text-sm">0 533 213 68 01</span>
+
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-indigo-400 shrink-0" />
+                    <span className="text-xs font-semibold text-slate-200">Uzatmalı Teleskopik Lowbed Filosu</span>
+                  </div>
+                  <span className="text-[10px] font-bold bg-indigo-950 text-indigo-300 px-2 py-0.5 rounded border border-indigo-800">35 Metre</span>
                 </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-950 border border-slate-800/80 flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-400 shrink-0" />
+                    <span className="text-xs font-semibold text-slate-200">Öncü Araç (Escort) & Yol İzinleri</span>
+                  </div>
+                  <span className="text-[10px] font-bold bg-emerald-950 text-emerald-300 px-2 py-0.5 rounded border border-emerald-800">Resmi İzin</span>
+                </div>
+              </div>
+
+              {/* Direct Executive Contact Box */}
+              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800/80 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <span className="text-[11px] font-semibold text-slate-400 block">Genel Müdürü / Yetkili</span>
+                    <h5 className="text-base font-extrabold text-white">Cüneyt Erdem</h5>
+                  </div>
+                  <span className="text-xs font-extrabold text-blue-400">0 533 213 68 01</span>
+                </div>
+
+                <button
+                  onClick={openWhatsAppDirect}
+                  className="w-full flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-lg text-xs shadow-lg transition-all"
+                >
+                  <MessageSquare className="w-4 h-4" />
+                  <span>WhatsApp ile Doğrudan Ulaş</span>
+                </button>
               </div>
 
             </div>
