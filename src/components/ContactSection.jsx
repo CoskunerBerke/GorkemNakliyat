@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Phone, Mail, MapPin, User, MessageSquare } from 'lucide-react';
+import { Phone, Mail, MapPin, User, MessageSquare, Compass, ShieldCheck, Clock } from 'lucide-react';
 
 export const ContactSection = () => {
   const { t } = useLanguage();
@@ -102,12 +102,11 @@ export const ContactSection = () => {
 
         </div>
 
-        {/* Full Address & Interactive Map Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
-          
-          {/* Detailed Address Box */}
-          <div className="lg:col-span-5 bg-slate-900 rounded-2xl p-8 border border-slate-800 flex flex-col justify-between shadow-xl">
-            <div className="space-y-6">
+        {/* Detailed Address & Corporate Info Box (Map-free clean layout) */}
+        <div className="bg-slate-900 rounded-2xl p-8 border border-slate-800 shadow-xl mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            
+            <div className="lg:col-span-8 space-y-4">
               <div className="flex items-center gap-3">
                 <div className="p-3 rounded-xl bg-blue-600/20 text-blue-400 border border-blue-500/30">
                   <MapPin className="w-6 h-6" />
@@ -124,62 +123,46 @@ export const ContactSection = () => {
                 </p>
               </div>
 
-              <div className="space-y-3 text-xs text-slate-300">
-                <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">{t.contact.managerTitle}:</span>
-                  <span className="font-bold text-white">Cüneyt Erdem</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs text-slate-300 pt-2">
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                  <span className="text-slate-400 block">{t.contact.managerTitle}:</span>
+                  <span className="font-bold text-white mt-0.5 block">Cüneyt Erdem</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">{t.contact.mobileTitle}:</span>
-                  <span className="font-bold text-blue-400">0 533 213 68 01</span>
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                  <span className="text-slate-400 block">{t.contact.mobileTitle}:</span>
+                  <span className="font-bold text-blue-400 mt-0.5 block">0 533 213 68 01</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">{t.contact.phoneTitle}:</span>
-                  <span className="font-bold text-white">0 312 385 44 83</span>
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                  <span className="text-slate-400 block">{t.contact.phoneTitle}:</span>
+                  <span className="font-bold text-white mt-0.5 block">0 312 385 44 83</span>
                 </div>
-                <div className="flex justify-between py-2 border-b border-slate-800">
-                  <span className="text-slate-400">{t.contact.faxTitle}:</span>
-                  <span className="font-bold text-white">0 312 385 44 84</span>
+                <div className="p-3 rounded-lg bg-slate-950 border border-slate-800">
+                  <span className="text-slate-400 block">{t.contact.faxTitle}:</span>
+                  <span className="font-bold text-white mt-0.5 block">0 312 385 44 84</span>
                 </div>
               </div>
             </div>
 
-            <div className="pt-6 flex gap-3">
-              <a
-                href="https://maps.google.com/?q=Ostim+Prestij+Is+Merkezi+Ankara"
-                target="_blank"
-                rel="noreferrer"
-                className="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 rounded-xl text-xs shadow-lg transition-all"
-              >
-                {t.contact.openMapsBtn}
-              </a>
+            <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
               <a
                 href="https://wa.me/905332136801"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs shadow-lg transition-all flex items-center justify-center gap-1.5"
+                className="w-full text-center bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-4 rounded-xl text-sm shadow-lg transition-all flex items-center justify-center gap-2"
               >
-                <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp</span>
+                <MessageSquare className="w-5 h-5" />
+                <span>WhatsApp Mesaj Gönder</span>
+              </a>
+              <a
+                href="tel:05332136801"
+                className="w-full text-center bg-blue-600 hover:bg-blue-500 text-white font-bold py-4 rounded-xl text-sm shadow-lg transition-all flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                <span>Hemen Ara (0533 213 68 01)</span>
               </a>
             </div>
-          </div>
 
-          {/* Interactive Google Map Embed */}
-          <div className="lg:col-span-7 bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden shadow-xl min-h-[350px]">
-            <iframe
-              title="Görkem Ağır Nakliyat Ostim Prestij Konum"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3058.948281987588!2d32.7483648!3d39.9760341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14d3493774cd2ec1%3A0x86705574519bc16d!2sOstim%20Prestij%20%C4%B0%C5%9F%20Merkezi!5e0!3m2!1str!2str!4v1700000000000!5m2!1str!2str"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '380px' }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              className="w-full h-full grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-            />
           </div>
-
         </div>
 
         {/* Message Form directly opening WhatsApp */}
