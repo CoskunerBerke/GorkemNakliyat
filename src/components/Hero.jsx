@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { PhoneCall, MessageSquare, MapPin } from 'lucide-react';
+import { Phone, MessageSquare, MapPin } from 'lucide-react';
 
 export const Hero = () => {
   const { t } = useLanguage();
@@ -11,66 +11,114 @@ export const Hero = () => {
   };
 
   return (
-    <section id="hero" className="bg-white text-slate-900 py-16 md:py-24 border-b border-slate-200 relative">
-      <div className="max-w-5xl mx-auto px-6 text-center space-y-8">
-        
-        {/* Simple Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 bg-blue-50 border border-blue-200 rounded-full text-blue-700 text-xs font-bold tracking-wide">
-          <MapPin className="w-3.5 h-3.5" />
-          <span>{t.hero.badge}</span>
+    <>
+      {/* Hero: Dark overlay gradient, no photo, clean corporate */}
+      <section
+        id="hero"
+        className="relative bg-gray-900 text-white"
+        style={{
+          background: 'linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)',
+          minHeight: '520px',
+        }}
+      >
+        <div className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 60px, rgba(255,255,255,0.05) 60px, rgba(255,255,255,0.05) 61px), repeating-linear-gradient(90deg, transparent, transparent 60px, rgba(255,255,255,0.05) 60px, rgba(255,255,255,0.05) 61px)'
+          }}
+        />
+
+        <div className="relative max-w-6xl mx-auto px-6 py-24 md:py-32 flex flex-col lg:flex-row items-center gap-12">
+          
+          {/* Left: Main Text */}
+          <div className="flex-1 text-center lg:text-left space-y-6">
+            <p className="text-red-400 text-sm font-bold uppercase tracking-widest">
+              {t.hero.badge}
+            </p>
+            <h1
+              className="text-3xl md:text-5xl font-black leading-tight uppercase"
+              style={{ fontFamily: "'Roboto Condensed', 'Arial Black', sans-serif" }}
+            >
+              {t.hero.title}
+            </h1>
+            <p className="text-gray-300 text-base md:text-lg max-w-xl leading-relaxed">
+              {t.hero.subtitle}
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+              <button
+                onClick={openWhatsApp}
+                className="inline-flex items-center justify-center gap-2 bg-red-700 hover:bg-red-800 text-white font-bold px-7 py-3.5 text-sm uppercase tracking-wide transition-colors"
+              >
+                <MessageSquare className="w-4 h-4" />
+                {t.hero.ctaPrimary}
+              </button>
+              <a
+                href="tel:05332136801"
+                className="inline-flex items-center justify-center gap-2 border-2 border-white text-white hover:bg-white hover:text-gray-900 font-bold px-7 py-3.5 text-sm uppercase tracking-wide transition-all"
+              >
+                <Phone className="w-4 h-4" />
+                0 533 213 68 01
+              </a>
+            </div>
+          </div>
+
+          {/* Right: Simple Info Box */}
+          <div className="w-full lg:w-80 bg-white/10 backdrop-blur-sm border border-white/20 p-6 space-y-4">
+            <h3
+              className="text-white font-bold text-lg uppercase border-b border-white/20 pb-3"
+              style={{ fontFamily: "'Roboto Condensed', sans-serif" }}
+            >
+              {t.hero.supportTitle}
+            </h3>
+            <div className="space-y-3 text-sm text-gray-200">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-red-400 shrink-0 mt-0.5" />
+                <span>OSTİM OSB Mah., 100. Yıl Bulvarı D Blok No:55/35, Ankara</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-red-400 shrink-0" />
+                <a href="tel:05332136801" className="hover:text-red-300 font-bold">0 533 213 68 01</a>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-gray-400 shrink-0" />
+                <a href="tel:03123854483" className="hover:text-red-300">0 312 385 44 83</a>
+              </div>
+            </div>
+            <button
+              onClick={openWhatsApp}
+              className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 text-xs uppercase tracking-wider flex items-center justify-center gap-2 transition-colors"
+            >
+              <MessageSquare className="w-3.5 h-3.5" />
+              WhatsApp ile Teklif Al
+            </button>
+          </div>
+
         </div>
+      </section>
 
-        {/* Big Clean Headline */}
-        <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight text-slate-900 max-w-4xl mx-auto uppercase">
-          {t.hero.title}
-        </h1>
-
-        {/* Subtitle */}
-        <p className="text-slate-600 text-base sm:text-lg max-w-2xl mx-auto font-medium leading-relaxed">
-          {t.hero.subtitle}
-        </p>
-
-        {/* Direct Action Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
-          <button
-            onClick={openWhatsApp}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-8 py-4 rounded-xl shadow-xs transition-all text-sm uppercase tracking-wider"
-          >
-            <MessageSquare className="w-5 h-5" />
-            <span>{t.hero.ctaPrimary}</span>
-          </button>
-
-          <a
-            href="tel:05332136801"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-slate-100 hover:bg-slate-200 text-slate-900 border border-slate-300 font-bold px-8 py-4 rounded-xl transition-all text-sm"
-          >
-            <PhoneCall className="w-5 h-5 text-blue-600" />
-            <span>Cüneyt Erdem: 0 533 213 68 01</span>
-          </a>
-        </div>
-
-        {/* Clean Stats Strip - Light Theme */}
-        <div className="pt-12 grid grid-cols-2 md:grid-cols-4 gap-6 border-t border-slate-200 text-left">
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-2xl sm:text-3xl font-black text-blue-600">{t.hero.stat1Title}</div>
-            <div className="text-xs text-slate-600 mt-1 font-bold">{t.hero.stat1Desc}</div>
-          </div>
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-2xl sm:text-3xl font-black text-slate-900">{t.hero.stat2Title}</div>
-            <div className="text-xs text-slate-600 mt-1 font-bold">{t.hero.stat2Desc}</div>
-          </div>
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-2xl sm:text-3xl font-black text-emerald-600">{t.hero.stat3Title}</div>
-            <div className="text-xs text-slate-600 mt-1 font-bold">{t.hero.stat3Desc}</div>
-          </div>
-          <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-            <div className="text-2xl sm:text-3xl font-black text-amber-600">{t.hero.stat4Title}</div>
-            <div className="text-xs text-slate-600 mt-1 font-bold">{t.hero.stat4Desc}</div>
+      {/* Stats Strip */}
+      <section className="bg-red-700 text-white py-6">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-3xl font-black" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.hero.stat1Title}</div>
+              <div className="text-red-200 text-xs uppercase tracking-wider mt-1 font-semibold">{t.hero.stat1Desc}</div>
+            </div>
+            <div>
+              <div className="text-3xl font-black" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.hero.stat2Title}</div>
+              <div className="text-red-200 text-xs uppercase tracking-wider mt-1 font-semibold">{t.hero.stat2Desc}</div>
+            </div>
+            <div>
+              <div className="text-3xl font-black" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.hero.stat3Title}</div>
+              <div className="text-red-200 text-xs uppercase tracking-wider mt-1 font-semibold">{t.hero.stat3Desc}</div>
+            </div>
+            <div>
+              <div className="text-3xl font-black" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.hero.stat4Title}</div>
+              <div className="text-red-200 text-xs uppercase tracking-wider mt-1 font-semibold">{t.hero.stat4Desc}</div>
+            </div>
           </div>
         </div>
-
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

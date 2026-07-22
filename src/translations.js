@@ -219,7 +219,9 @@ export const translations = {
       formSubmitBtn: "Mesajı WhatsApp ile Gönder"
     },
     footer: {
+      aboutTitle: "Görkem Ağır Nakliyat",
       aboutText: "Görkem Ağır Nakliyat & Uluslararası Taşımacılık, gabari dışı yükleriniz ve özel proje lojistiğinde Ankara OSTİM merkezli profesyonel çözüm ortağınızdır.",
+      readMore: "devamını oku",
       quickLinks: "Hızlı Bağlantılar",
       servicesTitle: "Hizmetlerimiz",
       serviceItem1: "Ağır Yük Taşımacılığı",
@@ -453,7 +455,9 @@ export const translations = {
       formSubmitBtn: "Send Message via WhatsApp"
     },
     footer: {
+      aboutTitle: "Görkem Heavy Transport",
       aboutText: "Görkem Heavy Transport & International Logistics is your professional Ankara OSTIM based solution partner for oversized cargo and project logistics.",
+      readMore: "read more",
       quickLinks: "Quick Links",
       servicesTitle: "Our Services",
       serviceItem1: "Heavy Haulage",

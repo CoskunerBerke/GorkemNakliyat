@@ -6,137 +6,108 @@ export const ContactSection = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="contact" className="py-16 md:py-20 bg-slate-50 text-slate-900 border-b border-slate-200">
-      <div className="max-w-7xl mx-auto px-6">
+    <section id="contact" className="py-16 md:py-20 bg-white border-b border-gray-200">
+      <div className="max-w-6xl mx-auto px-6">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-black text-blue-600 uppercase tracking-wider block">
+        {/* Header */}
+        <div className="mb-12">
+          <p className="text-red-700 text-sm font-bold uppercase tracking-widest mb-2" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
             {t.contact.badge}
-          </span>
-          <h2 className="text-3xl sm:text-4xl font-black uppercase tracking-tight text-slate-900">
+          </p>
+          <h2 className="text-3xl md:text-4xl font-black text-gray-900 uppercase" style={{ fontFamily: "'Roboto Condensed', 'Arial Black', sans-serif" }}>
             {t.contact.title}
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm font-medium max-w-xl mx-auto">
-            {t.contact.subtitle}
-          </p>
+          <div className="w-12 h-1 bg-red-700 mt-3" />
         </div>
 
-        {/* Contact Info Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {/* Contact Info Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           
-          {/* Card 1: Manager & GSM */}
-          <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-all shadow-2xs">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center mb-4">
-              <User className="w-5 h-5" />
+          <div className="border border-gray-200 bg-gray-50 p-5">
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
+              <User className="w-4 h-4 text-red-700" />
+              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.managerTitle}</span>
             </div>
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">{t.contact.managerTitle}</span>
-            <h4 className="text-base font-black text-slate-900 mb-1">{t.contact.managerName}</h4>
-            <a
-              href="tel:05332136801"
-              className="inline-flex items-center gap-1.5 text-blue-600 font-extrabold text-xs hover:underline"
-            >
-              <Phone className="w-3.5 h-3.5" />
-              <span>{t.contact.mobileNumber}</span>
-            </a>
+            <p className="font-black text-gray-900 text-base" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>{t.contact.managerName}</p>
+            <a href="tel:05332136801" className="text-red-700 font-bold text-sm hover:underline block mt-1">{t.contact.mobileNumber}</a>
           </div>
 
-          {/* Card 2: Phone & Fax */}
-          <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-all shadow-2xs">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 border border-blue-200 flex items-center justify-center mb-4">
-              <Phone className="w-5 h-5" />
+          <div className="border border-gray-200 bg-gray-50 p-5">
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
+              <Phone className="w-4 h-4 text-red-700" />
+              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.phoneTitle}</span>
             </div>
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">{t.contact.phoneTitle} & {t.contact.faxTitle}</span>
-            <div className="space-y-1 mt-1 text-xs font-bold text-slate-900">
-              <p>Tel: <a href="tel:03123854483" className="hover:text-blue-600">{t.contact.phoneNumber}</a></p>
-              <p className="text-slate-600">Faks: {t.contact.faxNumber}</p>
-            </div>
+            <a href="tel:03123854483" className="text-gray-900 font-bold text-sm block hover:text-red-700">{t.contact.phoneNumber}</a>
+            <p className="text-gray-500 text-xs mt-1">Faks: {t.contact.faxNumber}</p>
           </div>
 
-          {/* Card 3: Email */}
-          <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-all shadow-2xs">
-            <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 border border-emerald-200 flex items-center justify-center mb-4">
-              <Mail className="w-5 h-5" />
+          <div className="border border-gray-200 bg-gray-50 p-5">
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
+              <Mail className="w-4 h-4 text-red-700" />
+              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.emailTitle}</span>
             </div>
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">{t.contact.emailTitle}</span>
-            <a
-              href="mailto:gorkemagirnakliyat@gmail.com"
-              className="text-emerald-700 hover:text-emerald-800 font-bold text-xs break-all mt-1 block"
-            >
+            <a href="mailto:gorkemagirnakliyat@gmail.com" className="text-red-700 font-bold text-xs hover:underline break-all">
               {t.contact.emailAddress}
             </a>
           </div>
 
-          {/* Card 4: OSTİM Record */}
-          <div className="bg-white rounded-2xl p-6 border border-slate-200 hover:border-blue-400 transition-all shadow-2xs">
-            <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 border border-amber-200 flex items-center justify-center mb-4">
-              <MapPin className="w-5 h-5" />
+          <div className="border border-gray-200 bg-gray-50 p-5">
+            <div className="flex items-center gap-2 mb-3 pb-3 border-b border-gray-200">
+              <MapPin className="w-4 h-4 text-red-700" />
+              <span className="text-xs font-bold uppercase text-gray-700">{t.contact.ostimRecordTitle}</span>
             </div>
-            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">{t.contact.ostimRecordTitle}</span>
-            <p className="text-xs font-bold text-slate-900 mt-1 leading-relaxed">
-              {t.contact.ostimRecordAddress}
-            </p>
+            <p className="text-gray-700 text-xs leading-relaxed font-semibold">{t.contact.ostimRecordAddress}</p>
           </div>
 
         </div>
 
-        {/* Detailed Address Box */}
-        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-2xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        {/* Full Address Box */}
+        <div className="bg-gray-50 border border-gray-200 p-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
             
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="p-3 rounded-xl bg-blue-50 text-blue-600 border border-blue-200">
-                  <MapPin className="w-6 h-6" />
+            <div className="lg:col-span-2 space-y-3">
+              <h4 className="font-black uppercase text-gray-900 text-lg" style={{ fontFamily: "'Roboto Condensed', sans-serif" }}>
+                {t.contact.addressTitle}
+              </h4>
+              <p className="text-gray-700 text-sm font-medium leading-relaxed">
+                {t.contact.addressFull}
+              </p>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2 text-xs font-bold">
+                <div>
+                  <span className="text-gray-400 text-[10px] uppercase block">{t.contact.managerTitle}</span>
+                  <span className="text-gray-900">Cüneyt Erdem</span>
                 </div>
                 <div>
-                  <h4 className="text-lg font-black uppercase text-slate-900">{t.contact.addressTitle}</h4>
-                  <span className="text-xs text-blue-600 font-bold">{t.contact.addressSub}</span>
+                  <span className="text-gray-400 text-[10px] uppercase block">GSM</span>
+                  <a href="tel:05332136801" className="text-red-700 hover:underline">0 533 213 68 01</a>
                 </div>
-              </div>
-
-              <div className="p-4 rounded-xl bg-slate-50 border border-slate-200">
-                <p className="text-xs sm:text-sm text-slate-800 font-semibold leading-relaxed">
-                  {t.contact.addressFull}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs font-bold pt-2">
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 text-[10px] uppercase block">{t.contact.managerTitle}:</span>
-                  <span className="text-slate-900 mt-0.5 block font-bold">Cüneyt Erdem</span>
+                <div>
+                  <span className="text-gray-400 text-[10px] uppercase block">TEL</span>
+                  <a href="tel:03123854483" className="text-gray-900 hover:text-red-700">0 312 385 44 83</a>
                 </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 text-[10px] uppercase block">{t.contact.mobileTitle}:</span>
-                  <span className="text-blue-600 mt-0.5 block font-bold">0 533 213 68 01</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 text-[10px] uppercase block">{t.contact.phoneTitle}:</span>
-                  <span className="text-slate-900 mt-0.5 block font-bold">0 312 385 44 83</span>
-                </div>
-                <div className="p-3 rounded-xl bg-slate-50 border border-slate-200">
-                  <span className="text-slate-500 text-[10px] uppercase block">{t.contact.faxTitle}:</span>
-                  <span className="text-slate-900 mt-0.5 block font-bold">0 312 385 44 84</span>
+                <div>
+                  <span className="text-gray-400 text-[10px] uppercase block">FAKS</span>
+                  <span className="text-gray-900">0 312 385 44 84</span>
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
+            <div className="flex flex-col gap-3">
               <a
                 href="https://wa.me/905332136801"
                 target="_blank"
                 rel="noreferrer"
-                className="w-full text-center bg-emerald-600 hover:bg-emerald-700 text-white font-bold uppercase tracking-wider py-4 rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 bg-green-600 hover:bg-green-700 text-white font-bold py-3.5 text-xs uppercase tracking-wider transition-colors"
               >
                 <MessageSquare className="w-4 h-4" />
-                <span>WhatsApp Mesaj Gönder</span>
+                WhatsApp Mesaj Gönder
               </a>
               <a
                 href="tel:05332136801"
-                className="w-full text-center bg-slate-900 hover:bg-slate-800 text-white font-bold uppercase tracking-wider py-4 rounded-xl text-xs shadow-2xs transition-all flex items-center justify-center gap-2"
+                className="flex items-center justify-center gap-2 bg-red-700 hover:bg-red-800 text-white font-bold py-3.5 text-xs uppercase tracking-wider transition-colors"
               >
-                <Phone className="w-4 h-4 text-blue-400" />
-                <span>Hemen Ara (0533 213 68 01)</span>
+                <Phone className="w-4 h-4" />
+                Hemen Ara
               </a>
             </div>
 
