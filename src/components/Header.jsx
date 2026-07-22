@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import Logo from './Logo';
 import { Phone, Mail, MapPin, Menu, X, MessageSquare } from 'lucide-react';
 
 export const Header = () => {
   const { lang, setLang, t } = useLanguage();
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navItems = [
     { label: t.nav.home, href: "#hero" },
@@ -26,14 +17,14 @@ export const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white shadow-xs border-b border-slate-200 transition-all duration-300">
-      {/* Top Bar */}
-      <div className="bg-slate-900 text-slate-300 text-xs py-2 px-4 border-b border-slate-800">
+    <header className="sticky top-0 z-50 w-full bg-slate-900 border-b border-slate-800 text-white shadow-md">
+      {/* Top Contact Bar */}
+      <div className="bg-slate-950 text-slate-400 text-xs py-2 px-4 border-b border-slate-800/80">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4">
             <a href="tel:05332136801" className="flex items-center gap-1.5 hover:text-blue-400 transition-colors">
               <Phone className="w-3.5 h-3.5 text-blue-400" />
-              <span className="font-semibold">GSM: 0 533 213 68 01</span>
+              <span className="font-medium">GSM: 0 533 213 68 01</span>
             </a>
             <span className="hidden md:inline text-slate-700">|</span>
             <a href="tel:03123854483" className="hidden md:flex items-center gap-1.5 hover:text-blue-400 transition-colors">
@@ -50,30 +41,24 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             <div className="hidden lg:flex items-center gap-1.5 text-slate-400">
               <MapPin className="w-3.5 h-3.5 text-blue-400" />
-              <span>OSTİM OSB, 100. Yıl Blv. Ankara</span>
+              <span>OSTİM OSB, 100. Yıl Blv. No: 55/35 Ankara</span>
             </div>
             
-            {/* Top Right Prominent Language Selector */}
+            {/* Language Switcher */}
             <div className="flex items-center bg-slate-800 rounded-full p-1 border border-slate-700">
               <button
                 onClick={() => setLang('tr')}
-                className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                  lang === 'tr' 
-                    ? 'bg-blue-600 text-white shadow-xs' 
-                    : 'text-slate-400 hover:text-white'
+                className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold transition-all ${
+                  lang === 'tr' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
-                title="Türkçe"
               >
                 <span>🇹🇷</span> TR
               </button>
               <button
                 onClick={() => setLang('en')}
-                className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold transition-all duration-200 ${
-                  lang === 'en' 
-                    ? 'bg-blue-600 text-white shadow-xs' 
-                    : 'text-slate-400 hover:text-white'
+                className={`flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold transition-all ${
+                  lang === 'en' ? 'bg-blue-600 text-white' : 'text-slate-400 hover:text-white'
                 }`}
-                title="English"
               >
                 <span>🇬🇧</span> EN
               </button>
@@ -82,33 +67,35 @@ export const Header = () => {
         </div>
       </div>
 
-      {/* Main Navigation Bar */}
-      <div className={`px-4 lg:px-8 py-3.5 transition-all ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md' : 'bg-white'}`}>
+      {/* Main Navbar */}
+      <div className="px-4 lg:px-8 py-3.5">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           
           {/* Logo */}
-          <a href="#hero" className="flex items-center group">
+          <a href="#hero" className="flex items-center">
             <Logo variant="full" size="normal" />
           </a>
 
           {/* Desktop Nav Items */}
-          <nav className="hidden lg:flex items-center gap-2">
+          <nav className="hidden lg:flex items-center gap-6">
             {navItems.map((item, idx) => (
               <a
                 key={idx}
                 href={item.href}
-                className="px-3.5 py-2 text-sm font-bold text-slate-800 hover:text-blue-600 rounded-lg transition-colors"
+                className="text-sm font-semibold text-slate-200 hover:text-blue-400 transition-colors"
               >
                 {item.label}
               </a>
             ))}
           </nav>
 
-          {/* Right Action */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* Direct WhatsApp Action Button */}
+          <div className="hidden lg:flex items-center">
             <a
-              href="#calculator"
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-extrabold uppercase tracking-wider px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all text-xs"
+              href="https://wa.me/905332136801?text=Merhaba%20G%C3%B6rkem%20A%C4%9F%C4%B1r%20Nakliyat%2C%20teklif%20almak%20istiyorum."
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold px-4 py-2.5 rounded-lg text-xs transition-all shadow-sm"
             >
               <MessageSquare className="w-4 h-4" />
               <span>{t.nav.getQuoteBtn}</span>
@@ -117,24 +104,9 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <div className="flex items-center gap-2 lg:hidden">
-            <div className="flex items-center bg-slate-100 rounded-full p-0.5 border border-slate-300">
-              <button
-                onClick={() => setLang('tr')}
-                className={`px-2 py-0.5 rounded-full text-xs font-bold ${lang === 'tr' ? 'bg-blue-600 text-white' : 'text-slate-600'}`}
-              >
-                TR
-              </button>
-              <button
-                onClick={() => setLang('en')}
-                className={`px-2 py-0.5 rounded-full text-xs font-bold ${lang === 'en' ? 'bg-blue-600 text-white' : 'text-slate-600'}`}
-              >
-                EN
-              </button>
-            </div>
-
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-slate-800 hover:bg-slate-100 rounded-lg focus:outline-none"
+              className="p-2 text-slate-300 hover:text-white bg-slate-800 rounded-lg"
               aria-label="Menu"
             >
               {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -146,27 +118,28 @@ export const Header = () => {
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 animate-fadeIn">
+        <div className="lg:hidden bg-slate-950 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
           <div className="flex flex-col space-y-1">
             {navItems.map((item, idx) => (
               <a
                 key={idx}
                 href={item.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="px-4 py-2.5 text-base font-bold text-slate-800 hover:bg-slate-50 rounded-lg hover:text-blue-600 transition-colors"
+                className="px-4 py-2 text-base font-semibold text-slate-200 hover:bg-slate-800 rounded-lg hover:text-blue-400"
               >
                 {item.label}
               </a>
             ))}
           </div>
-
-          <div className="pt-3 border-t border-slate-200 flex flex-col gap-2">
+          <div className="pt-2">
             <a
-              href="#calculator"
-              onClick={() => setMobileMenuOpen(false)}
-              className="w-full text-center bg-blue-600 text-white font-extrabold uppercase py-3 rounded-lg text-xs"
+              href="https://wa.me/905332136801?text=Merhaba%20G%C3%B6rkem%20A%C4%9F%C4%B1r%20Nakliyat%2C%20teklif%20almak%20istiyorum."
+              target="_blank"
+              rel="noreferrer"
+              className="w-full flex items-center justify-center gap-2 bg-emerald-600 text-white font-bold py-3 rounded-lg text-xs"
             >
-              {t.nav.getQuoteBtn}
+              <MessageSquare className="w-4 h-4" />
+              <span>{t.nav.getQuoteBtn}</span>
             </a>
           </div>
         </div>
