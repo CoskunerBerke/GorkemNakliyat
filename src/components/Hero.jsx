@@ -10,14 +10,16 @@ export const Hero = () => {
       className="relative w-full flex items-center"
       style={{
         minHeight: '520px',
-        background: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 40%, #1a1a1a 100%)',
+        backgroundImage: 'url(/hero_truck.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
       }}
     >
-      {/* Subtle overlay pattern */}
+      {/* Dark overlay so text is readable, like gorkemlojistik.com.tr */}
       <div
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at 60% 50%, rgba(232,160,0,0.05) 0%, transparent 70%)',
+          background: 'rgba(0,0,0,0.55)',
         }}
       />
 
