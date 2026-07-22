@@ -7,11 +7,11 @@ export const FleetSection = () => {
 
   const getFleetIcon = (idx) => {
     switch (idx) {
-      case 0: return <Scale className="w-7 h-7 text-blue-400" />;
-      case 1: return <Maximize2 className="w-7 h-7 text-indigo-400" />;
-      case 2: return <Truck className="w-7 h-7 text-emerald-400" />;
-      case 3: return <Shield className="w-7 h-7 text-amber-400" />;
-      default: return <Truck className="w-7 h-7 text-blue-400" />;
+      case 0: return <Scale className="w-6 h-6 text-blue-600" />;
+      case 1: return <Maximize2 className="w-6 h-6 text-blue-600" />;
+      case 2: return <Truck className="w-6 h-6 text-blue-600" />;
+      case 3: return <Shield className="w-6 h-6 text-blue-600" />;
+      default: return <Truck className="w-6 h-6 text-blue-600" />;
     }
   };
 
@@ -21,61 +21,61 @@ export const FleetSection = () => {
   };
 
   return (
-    <section id="fleet" className="py-20 bg-slate-900 text-slate-100 border-b border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="fleet" className="py-16 md:py-20 bg-white text-slate-900 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
-          <span className="px-3.5 py-1.5 rounded-full bg-blue-950 text-blue-400 border border-blue-800 text-xs font-extrabold uppercase tracking-wider">
-            {t.fleet.badge}
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded text-blue-700 text-xs font-bold uppercase tracking-widest -skew-x-6 mb-4">
+            <span className="skew-x-6">{t.fleet.badge}</span>
+          </div>
+          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-wide text-slate-900">
             {t.fleet.title}
           </h2>
-          <p className="text-slate-400 text-base sm:text-lg">
+          <p className="text-xs md:text-sm text-slate-600 mt-4 leading-relaxed">
             {t.fleet.subtitle}
           </p>
         </div>
 
-        {/* Fleet Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        {/* Fleet Cards (Clean White Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {t.fleet.items.map((item, idx) => (
             <div
               key={idx}
-              className="bg-slate-950 rounded-2xl border border-slate-800 p-8 shadow-2xl hover:border-blue-500/50 transition-all flex flex-col justify-between group"
+              className="bg-slate-50 rounded-xl border border-slate-200 p-6 md:p-8 shadow-xs hover:border-blue-300 transition-all flex flex-col justify-between group"
             >
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <div className="w-14 h-14 rounded-2xl bg-slate-900 border border-slate-800 flex items-center justify-center group-hover:scale-105 group-hover:bg-blue-950/60 transition-all">
+                  <div className="w-12 h-12 rounded-lg bg-white border border-slate-200 flex items-center justify-center">
                     {getFleetIcon(idx)}
                   </div>
-                  <span className="px-3 py-1 bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-bold rounded-full uppercase">
+                  <span className="px-3 py-1 bg-blue-100 text-blue-700 border border-blue-200 text-[10px] font-black uppercase rounded">
                     {t.fleet.equipmentBadge}
                   </span>
                 </div>
 
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                  <h3 className="text-lg font-black uppercase text-slate-900 group-hover:text-blue-600 transition-colors mb-2">
                     {item.name}
                   </h3>
-                  <p className="text-slate-400 text-xs sm:text-sm leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Specs Box */}
-                <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-800/80 text-center">
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
-                    <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.capacity}</span>
-                    <span className="text-xs font-bold text-blue-400 mt-0.5 block">{item.capacity}</span>
+                <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-200 text-center">
+                  <div className="p-3 rounded-lg bg-white border border-slate-200">
+                    <span className="text-[9px] text-slate-500 font-bold uppercase block">{t.fleet.specLabels.capacity}</span>
+                    <span className="text-xs font-black text-blue-600 mt-0.5 block">{item.capacity}</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
-                    <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.length}</span>
-                    <span className="text-xs font-bold text-white mt-0.5 block">{item.length}</span>
+                  <div className="p-3 rounded-lg bg-white border border-slate-200">
+                    <span className="text-[9px] text-slate-500 font-bold uppercase block">{t.fleet.specLabels.length}</span>
+                    <span className="text-xs font-black text-slate-900 mt-0.5 block">{item.length}</span>
                   </div>
-                  <div className="p-3 rounded-xl bg-slate-900 border border-slate-850">
-                    <span className="text-[10px] text-slate-400 uppercase font-bold block">{t.fleet.specLabels.type}</span>
-                    <span className="text-xs font-bold text-slate-300 mt-0.5 block truncate">{item.type}</span>
+                  <div className="p-3 rounded-lg bg-white border border-slate-200">
+                    <span className="text-[9px] text-slate-500 font-bold uppercase block">{t.fleet.specLabels.type}</span>
+                    <span className="text-xs font-black text-slate-700 mt-0.5 block truncate">{item.type}</span>
                   </div>
                 </div>
               </div>
@@ -83,7 +83,7 @@ export const FleetSection = () => {
               <div className="pt-6">
                 <button
                   onClick={() => handleFleetWhatsApp(item.name)}
-                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-900 hover:bg-emerald-600 text-slate-200 hover:text-white font-bold text-xs border border-slate-800 hover:border-emerald-500 transition-all shadow-md"
+                  className="w-full flex items-center justify-center gap-2 py-3 px-4 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-black uppercase text-xs shadow-sm transition-all"
                 >
                   <MessageSquare className="w-4 h-4" />
                   <span>{t.fleet.inquireWhatsApp}</span>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ShieldCheck, MapPin, CheckCircle2, Truck, MessageSquare, Award } from 'lucide-react';
+import { MapPin, CheckCircle2, Truck, MessageSquare, Award } from 'lucide-react';
 
 export const AboutSection = () => {
   const { t } = useLanguage();
@@ -10,48 +10,48 @@ export const AboutSection = () => {
   };
 
   return (
-    <section id="about" className="py-20 bg-slate-900 text-slate-100 border-b border-slate-800 relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="py-16 md:py-20 bg-white text-slate-900 border-b border-slate-200">
+      <div className="max-w-7xl mx-auto px-6">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left Column: Corporate Highlights Card */}
+          {/* Left Column: Corporate Info Cards */}
           <div className="lg:col-span-5 space-y-4">
             
-            <div className="relative rounded-2xl bg-slate-950 p-6 sm:p-8 border border-slate-800 shadow-2xl space-y-6">
+            <div className="bg-slate-50 rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6">
               
               <div className="flex items-center gap-4">
-                <div className="w-14 h-14 rounded-2xl bg-blue-600/20 text-blue-400 border border-blue-500/30 flex items-center justify-center shrink-0">
+                <div className="w-14 h-14 rounded-2xl bg-blue-100 text-blue-700 border border-blue-200 flex items-center justify-center shrink-0">
                   <Award className="w-7 h-7" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold text-white">{t.about.hubTitle}</h4>
-                  <span className="text-xs text-blue-400 font-semibold">{t.about.hubSub}</span>
+                  <h4 className="text-base font-extrabold uppercase text-slate-900">{t.about.hubTitle}</h4>
+                  <span className="text-xs text-blue-600 font-bold">{t.about.hubSub}</span>
                 </div>
               </div>
 
               {/* Quick Metrics */}
               <div className="grid grid-cols-2 gap-3 pt-2">
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.opScopeLabel}</span>
-                  <span className="text-xs font-bold text-white mt-1 block">{t.about.opScopeVal}</span>
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200">
+                  <span className="text-[10px] font-bold uppercase text-slate-500 block">{t.about.opScopeLabel}</span>
+                  <span className="text-xs font-black text-slate-900 mt-1 block">{t.about.opScopeVal}</span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.roadPermitLabel}</span>
-                  <span className="text-xs font-bold text-emerald-400 mt-1 block">{t.about.roadPermitVal}</span>
+                <div className="p-3.5 rounded-xl bg-white border border-slate-200">
+                  <span className="text-[10px] font-bold uppercase text-slate-500 block">{t.about.roadPermitLabel}</span>
+                  <span className="text-xs font-black text-emerald-600 mt-1 block">{t.about.roadPermitVal}</span>
                 </div>
               </div>
 
-              {/* Manager Card */}
-              <div className="p-4 rounded-xl bg-gradient-to-r from-blue-950 to-slate-900 border border-blue-800 flex items-center justify-between">
+              {/* Executive Box */}
+              <div className="p-4 rounded-xl bg-slate-900 text-white flex items-center justify-between">
                 <div>
-                  <span className="text-[11px] font-semibold text-slate-400 block">{t.about.managerLabel}</span>
-                  <h4 className="text-base font-extrabold text-white">{t.about.managerName}</h4>
-                  <span className="text-xs text-blue-400 font-bold">0 533 213 68 01</span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">{t.about.managerLabel}</span>
+                  <h4 className="text-base font-black">{t.about.managerName}</h4>
+                  <span className="text-xs text-blue-400 font-extrabold">0 533 213 68 01</span>
                 </div>
                 <button 
                   onClick={openWhatsApp}
-                  className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs px-3.5 py-2.5 rounded-lg transition-colors shadow-md"
+                  className="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold uppercase text-xs px-3.5 py-2.5 rounded-lg shadow-sm transition-all"
                 >
                   <MessageSquare className="w-3.5 h-3.5" />
                   <span>WhatsApp</span>
@@ -60,14 +60,14 @@ export const AboutSection = () => {
 
             </div>
 
-            {/* Location info badge */}
-            <div className="p-4 rounded-xl bg-slate-950 border border-slate-800 flex items-start gap-3">
-              <div className="p-2.5 rounded-lg bg-blue-950 text-blue-400 border border-blue-900 shrink-0">
+            {/* Address Badge */}
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 flex items-start gap-3">
+              <div className="p-2.5 rounded-lg bg-blue-100 text-blue-700 border border-blue-200 shrink-0">
                 <MapPin className="w-5 h-5" />
               </div>
               <div>
-                <h5 className="text-xs font-bold text-slate-200 uppercase tracking-wider">{t.about.officeRecordTitle}</h5>
-                <p className="text-xs text-slate-400 mt-1 leading-relaxed">
+                <h5 className="text-xs font-black uppercase tracking-wider text-slate-900">{t.about.officeRecordTitle}</h5>
+                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
                   Ostim OSB Mah. 100. Yıl Bulvarı, Ostim Prestij İş Merkezi D Blok No: 55/35, Yenimahalle / ANKARA
                 </p>
               </div>
@@ -78,33 +78,35 @@ export const AboutSection = () => {
           {/* Right Column: About Content */}
           <div className="lg:col-span-7 space-y-6">
             
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-950 text-blue-400 border border-blue-800 text-xs font-bold uppercase tracking-wider">
-              <Truck className="w-3.5 h-3.5" />
-              <span>{t.about.badge}</span>
+            <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 border border-blue-200 rounded text-blue-700 text-xs font-bold uppercase tracking-widest -skew-x-6 w-fit">
+              <span className="skew-x-6 flex items-center gap-1.5">
+                <Truck className="w-3.5 h-3.5" />
+                {t.about.badge}
+              </span>
             </div>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+            <h2 className="text-3xl sm:text-4xl font-black uppercase text-slate-900 tracking-wide">
               {t.about.title}
             </h2>
 
-            <p className="text-blue-400 text-base sm:text-lg font-medium leading-relaxed">
+            <p className="text-blue-600 text-sm sm:text-base font-bold leading-relaxed">
               {t.about.subtitle}
             </p>
 
-            <div className="space-y-4 text-slate-300 text-sm sm:text-base leading-relaxed">
+            <div className="space-y-4 text-slate-600 text-xs sm:text-sm leading-relaxed">
               <p>{t.about.p1}</p>
               <p>{t.about.p2}</p>
             </div>
 
-            {/* Grid Features */}
+            {/* Feature Cards Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4">
               {t.about.features.map((feat, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 hover:border-slate-700 transition-colors">
-                  <div className="flex items-center gap-2.5 mb-1.5">
-                    <CheckCircle2 className="w-5 h-5 text-blue-400 shrink-0" />
-                    <h4 className="font-bold text-white text-sm sm:text-base">{feat.title}</h4>
+                <div key={idx} className="p-4 rounded-xl bg-slate-50 border border-slate-200 hover:border-blue-300 transition-colors">
+                  <div className="flex items-center gap-2 mb-1">
+                    <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+                    <h4 className="font-bold text-slate-900 text-xs sm:text-sm uppercase tracking-wider">{feat.title}</h4>
                   </div>
-                  <p className="text-xs text-slate-400 pl-7 leading-relaxed">{feat.desc}</p>
+                  <p className="text-xs text-slate-600 pl-6 leading-relaxed">{feat.desc}</p>
                 </div>
               ))}
             </div>
