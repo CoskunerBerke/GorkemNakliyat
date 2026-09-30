@@ -47,7 +47,7 @@ The whole interface is available in **Turkish and English**; visitors switch lan
 ## Project structure
 
 ```text
-gorkemnakliyat/
+GorkemNakliyat/
 ├── index.html               # SEO title, description, keywords
 ├── public/                  # hero_truck.jpg, logo.jpg, favicon
 └── src/
@@ -67,8 +67,8 @@ gorkemnakliyat/
 Requirements: Node.js (a version supported by Vite 8) and npm.
 
 ```bash
-git clone https://github.com/CoskunerBerke/gorkemnakliyat.git
-cd gorkemnakliyat
+git clone https://github.com/CoskunerBerke/GorkemNakliyat.git
+cd GorkemNakliyat
 npm install
 npm run dev        # http://localhost:5173
 ```
@@ -80,7 +80,7 @@ npm run dev        # http://localhost:5173
 | `npm run preview` | Preview the production build locally |
 | `npm run lint` | Run Oxlint |
 
-No environment variables are required. All texts and contact details are in `src/translations.js`.
+No environment variables are required. All TR/EN texts and most contact details are in `src/translations.js`; the WhatsApp number is also hard-coded in `src/pages/IletisimPage.jsx`, `src/pages/KariyerPage.jsx` and `src/components/Footer.jsx`, and the footer repeats the phone number and e-mail address.
 
 Because the site uses `BrowserRouter`, the host serving `dist/` must fall back to `index.html` for unknown paths so that deep links such as `/iletisim` work.
 
@@ -116,13 +116,13 @@ React 19, Vite 8, React Router 7, Tailwind CSS 4, lucide-react, Roboto Condensed
 ### Kurulum
 
 ```bash
-git clone https://github.com/CoskunerBerke/gorkemnakliyat.git
-cd gorkemnakliyat
+git clone https://github.com/CoskunerBerke/GorkemNakliyat.git
+cd GorkemNakliyat
 npm install
 npm run dev        # http://localhost:5173
 ```
 
-Üretim derlemesi için `npm run build` (çıktı: `dist/`), yerelde önizleme için `npm run preview`. Ortam değişkeni gerekmez; tüm metinler ve iletişim bilgileri `src/translations.js` içindedir. Site `BrowserRouter` kullandığı için barındırma tarafında bilinmeyen adreslerin `index.html`'e yönlendirilmesi gerekir.
+Üretim derlemesi için `npm run build` (çıktı: `dist/`), yerelde önizleme için `npm run preview`. Ortam değişkeni gerekmez; tüm TR/EN metinler ve iletişim bilgilerinin çoğu `src/translations.js` içindedir. WhatsApp numarası ayrıca `src/pages/IletisimPage.jsx`, `src/pages/KariyerPage.jsx` ve `src/components/Footer.jsx` içinde sabit yazılıdır; footer'da telefon ve e-posta da tekrar yer alır. Site `BrowserRouter` kullandığı için barındırma tarafında bilinmeyen adreslerin `index.html`'e yönlendirilmesi gerekir.
 
 ---
 
